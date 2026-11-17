@@ -24,7 +24,7 @@ export function Universes() {
   return (
     <section
       className="universes"
-      id="experiencias"
+      id="universos"
       aria-labelledby="universes-title"
     >
       <div className="shell">

@@ -24,8 +24,9 @@ const commons = (
   page: string,
   _caption: string,
   _location: string,
+  author = "Subsecretaría de Turismo del Estado de México",
 ): Credit => ({
-  author: "Subsecretaría de Turismo del Estado de México",
+  author,
   source: "Wikimedia Commons",
   url: page,
   license: "CC BY-SA 4.0",
@@ -43,7 +44,7 @@ const pexels = (
   licenseUrl: "https://www.pexels.com/license/",
 });
 
-export const photographs = {
+const rawPhotographs = {
   hero: {
     src: "/images/hero-2400.webp",
     srcSet: "/images/hero-1600.webp 1600w, /images/hero-2400.webp 2400w",
@@ -119,7 +120,8 @@ export const photographs = {
     height: 900,
     alt: "Platillo de mole oscuro con ajonjolí, verduras y hierbas frescas servido en un plato de barro.",
     caption: "Mole de la casa",
-    location: "Tizayuca, México",
+    location: "Imagen ambiental · Tizayuca, México",
+    ambient: true,
     credit: pexels("Leonardo Aquino", "https://www.pexels.com/photo/29530030/"),
   },
   experiencias: {
@@ -148,6 +150,7 @@ export const photographs = {
       "https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_del_sol,_vista_a%C3%A9rea.jpg",
       "Pirámide del Sol",
       "Teotihuacán, Estado de México",
+      "EduardoAmadorA",
     ),
   },
   finale: {
@@ -174,6 +177,7 @@ export const photographs = {
       "https://commons.wikimedia.org/wiki/File:Vista_aerea_de_Hacienda_Real_San_Miguel_Ometusco,_Axapusco.jpg",
       "Hacienda de Ometusco, vista aérea",
       "Axapusco, Estado de México",
+      "Subsecretaría de Turismo",
     ),
   },
   axapuscoCapilla: {
@@ -189,6 +193,7 @@ export const photographs = {
       "https://commons.wikimedia.org/wiki/File:Fachada_de_la_Capilla_de_Hacienda_Real_San_Miguel_Ometusco,_Axapusco.jpg",
       "Capilla de la hacienda",
       "Axapusco, Estado de México",
+      "Subsecretaría de Turismo",
     ),
   },
   axapuscoHaciendaLateral: {
@@ -204,6 +209,7 @@ export const photographs = {
       "https://commons.wikimedia.org/wiki/File:Vista_Lateral,_Hacienda_Real_San_Miguel_Ometusco,_Axapusco.jpg",
       "Patio de la hacienda",
       "Axapusco, Estado de México",
+      "Subsecretaría de Turismo",
     ),
   },
   axapuscoCapillaInterior: {
@@ -219,6 +225,7 @@ export const photographs = {
       "https://commons.wikimedia.org/wiki/File:Atrio_de_la_Capilla_de_Hacienda_Real_San_Miguel_Ometusco,_Axapusco.jpg",
       "Interior de la capilla",
       "Axapusco, Estado de México",
+      "Subsecretaría de Turismo",
     ),
   },
   axapuscoPanorama: {
@@ -234,6 +241,7 @@ export const photographs = {
       "https://commons.wikimedia.org/wiki/File:San_Miguel_Ometusco,_Axapusco_banner.jpg",
       "Hacienda y volcán",
       "Axapusco, Estado de México",
+      "Subsecretaría de Turismo",
     ),
   },
   otumbaLetras: {
@@ -298,12 +306,88 @@ export const photographs = {
   },
 } satisfies Record<string, Photograph>;
 
+/**
+ * En desarrollo la app vive bajo /exploraEdomex/, así que las rutas absolutas
+ * de `public/` necesitan el prefijo de Vite para no pedir /images al servidor
+ * raíz. Se normalizan una sola vez aquí.
+ */
+const withBase = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
+type PhotographKey = keyof typeof rawPhotographs;
+
+export const photographs = Object.fromEntries(
+  Object.entries(rawPhotographs).map(([key, photo]) => [
+    key,
+    {
+      ...photo,
+      src: withBase(photo.src),
+      srcSet: photo.srcSet.replace(
+        /\/images\//g,
+        `${import.meta.env.BASE_URL}images/`,
+      ),
+    } satisfies Photograph,
+  ]),
+) as { [K in PhotographKey]: Photograph };
+
 export const navLinks = [
-  { label: "Descubrir", href: "#descubrir" },
-  { label: "Destinos", href: "#destinos" },
-  { label: "Experiencias", href: "#experiencias" },
-  { label: "Gastronomía", href: "#gastronomia" },
-  { label: "Cultura", href: "#cultura" },
+  { label: "Xala", href: "#xala" },
+  { label: "Galería", href: "#galeria" },
+  { label: "Alrededores", href: "#axapusco" },
+  { label: "Visita", href: "#visita" },
+];
+
+export const edition = {
+  kicker: "Explora Edomex · Edición 01",
+  name: "Xala",
+  place: "Axapusco",
+  region: "Estado de México",
+  coords: "19.72° N · 98.75° O",
+  altitude: "2 350 m s. n. m.",
+  distance: "1 h 30 desde CDMX",
+  mapUrl:
+    "https://www.google.com/maps/search/?api=1&query=Xala+Axapusco+Estado+de+M%C3%A9xico",
+};
+
+export type TerritoryPoint = {
+  index: string;
+  title: string;
+  copy: string;
+};
+
+export const territoryPoints: TerritoryPoint[] = [
+  {
+    index: "01",
+    title: "Axapusco",
+    copy: "Hacienda, capilla y maguey. El paisaje que da nombre a esta edición.",
+  },
+  {
+    index: "02",
+    title: "Otumba",
+    copy: "Plaza, ferrocarril y cocina de humo. Un pueblo para caminar sin itinerario.",
+  },
+  {
+    index: "03",
+    title: "Teotihuacán",
+    copy: "La Pirámide del Sol y la calzada, a menos de una hora por carretera.",
+  },
+];
+
+export const visitFacts = [
+  {
+    term: "Cómo llegar",
+    detail:
+      "Carretera Otumba–Ciudad Sahagún, Axapusco. Acceso en auto desde la Ciudad de México.",
+  },
+  {
+    term: "Cuándo ir",
+    detail:
+      "Todo el año. Mañanas claras y tardes de lluvia durante el verano.",
+  },
+  {
+    term: "Qué llevar",
+    detail: "Calzado para camino, abrigo ligero y tiempo para no correr.",
+  },
 ];
 
 export const marqueeWords = [
@@ -360,119 +444,78 @@ export const destinations: Destination[] = [
   },
 ];
 
+export type GalleryCategory =
+  | "Hacienda"
+  | "Territorio"
+  | "Mesa"
+  | "Alrededores";
+
 export type GalleryItem = {
   photo: Photograph;
   title: string;
-  category: "Paisaje" | "Pueblo" | "Mesa" | "Cultura" | "Patrimonio";
-  size: "wide" | "tall" | "square" | "panorama" | "portrait";
-  accent: Accent;
+  category: GalleryCategory;
 };
 
 export const gallery: GalleryItem[] = [
   {
-    photo: photographs.hero,
-    title: "Sierras del interior",
-    category: "Paisaje",
-    size: "wide",
-    accent: "verde",
+    photo: photographs.axapuscoHaciendaAerea,
+    title: "Hacienda desde el aire",
+    category: "Hacienda",
   },
   {
-    photo: photographs.otumbaLetras,
-    title: "Otumba, en letras",
-    category: "Pueblo",
-    size: "tall",
-    accent: "terracotta",
-  },
-  {
-    photo: photographs.intro,
-    title: "Bosque de niebla",
-    category: "Paisaje",
-    size: "portrait",
-    accent: "azul",
+    photo: photographs.axapuscoHaciendaLateral,
+    title: "Patio de la hacienda",
+    category: "Hacienda",
   },
   {
     photo: photographs.axapuscoCapilla,
-    title: "Capilla de Ometusco",
-    category: "Patrimonio",
-    size: "tall",
-    accent: "azul",
+    title: "Capilla de la hacienda",
+    category: "Hacienda",
   },
   {
-    photo: photographs.gastronomia,
-    title: "Fuego lento",
-    category: "Mesa",
-    size: "square",
-    accent: "terracotta",
+    photo: photographs.axapuscoCapillaInterior,
+    title: "Interior de la capilla",
+    category: "Hacienda",
   },
   {
-    photo: photographs.cultura,
-    title: "Pirámide del Sol",
-    category: "Cultura",
-    size: "wide",
-    accent: "marigold",
+    photo: photographs.altiplano,
+    title: "El altiplano, desde arriba",
+    category: "Territorio",
+  },
+  {
+    photo: photographs.finale,
+    title: "Mar de nubes",
+    category: "Territorio",
   },
   {
     photo: photographs.gastronomiaDetalle,
     title: "Mole de la casa",
     category: "Mesa",
-    size: "square",
-    accent: "terracotta",
-  },
-  {
-    photo: photographs.experiencias,
-    title: "Burrolandia",
-    category: "Pueblo",
-    size: "wide",
-    accent: "verde",
-  },
-  {
-    photo: photographs.axapuscoHaciendaLateral,
-    title: "Patio de la hacienda",
-    category: "Patrimonio",
-    size: "wide",
-    accent: "azul",
-  },
-  {
-    photo: photographs.otumba,
-    title: "Plaza de Otumba",
-    category: "Pueblo",
-    size: "portrait",
-    accent: "rosa",
-  },
-  {
-    photo: photographs.otumbaMuseo,
-    title: "Museo del Ferrocarril",
-    category: "Cultura",
-    size: "square",
-    accent: "marigold",
-  },
-  {
-    photo: photographs.otumbaEstacion,
-    title: "Estación de Otumba",
-    category: "Patrimonio",
-    size: "wide",
-    accent: "verde",
-  },
-  {
-    photo: photographs.finale,
-    title: "Mar de nubes",
-    category: "Paisaje",
-    size: "wide",
-    accent: "azul",
-  },
-  {
-    photo: photographs.axapuscoCapillaInterior,
-    title: "Interior de la capilla",
-    category: "Patrimonio",
-    size: "portrait",
-    accent: "marigold",
   },
   {
     photo: photographs.otumbaChilaquiles,
     title: "Chilaquiles con barbacoa",
     category: "Mesa",
-    size: "square",
-    accent: "terracotta",
+  },
+  {
+    photo: photographs.otumbaLetras,
+    title: "Otumba, en letras",
+    category: "Alrededores",
+  },
+  {
+    photo: photographs.otumba,
+    title: "Plaza de Otumba",
+    category: "Alrededores",
+  },
+  {
+    photo: photographs.otumbaEstacion,
+    title: "Estación de ferrocarril",
+    category: "Alrededores",
+  },
+  {
+    photo: photographs.cultura,
+    title: "Pirámide del Sol",
+    category: "Alrededores",
   },
 ];
 
@@ -515,7 +558,7 @@ export const universes: {
     detail: "Encuentros que se quedan contigo.",
     image: photographs.experiencias,
     accent: "azul",
-    href: "#experiencias",
+    href: "#otumba",
   },
   {
     id: "universo-cultura",
@@ -524,7 +567,7 @@ export const universes: {
     meta: "Piedra, oficio y memoria.",
     detail: "Un legado que sigue vivo.",
     image: photographs.cultura,
-    accent: "marigold",
+    accent: "rosa",
     href: "#cultura",
   },
 ];

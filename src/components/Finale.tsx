@@ -21,19 +21,24 @@ export function Finale() {
       <div className="finale__veil" aria-hidden="true" />
 
       <div className="shell finale__inner">
-        <p className="meta finale__kicker">04 — El siguiente capítulo</p>
-        <h2 className="finale__title display" id="finale-title">
-          Tu próxima historia
-          <br />
-          <em>comienza aquí.</em>
+        <span className="section-tag section-tag--light">
+          <i aria-hidden="true" />
+          07 — El siguiente capítulo
+        </span>
+
+        <h2 className="finale__title" id="finale-title">
+          <span>Nos vemos</span>
+          <em>en el camino.</em>
         </h2>
+
         <p className="finale__sub">
           El Edomex es más grande de lo que crees. Nosotros apenas estamos
           empezando.
         </p>
-        <a className="cta" href="#universos">
-          <span>Comenzar a explorar</span>
-          <ArrowUpRight size={16} strokeWidth={1.4} aria-hidden="true" />
+
+        <a className="finale__cta" href="#destinos">
+          <span>Volver a la ruta</span>
+          <ArrowUpRight size={17} strokeWidth={1.4} aria-hidden="true" />
         </a>
       </div>
 

@@ -8,8 +8,10 @@ export function Marquee() {
           <div className="marquee__group" key={group}>
             {marqueeWords.map((word, index) => (
               <span className="marquee__item" key={`${group}-${word}`}>
-                <span>{word}</span>
-                <i className={index % 3 === 1 ? "is-outline" : undefined}>✦</i>
+                <span className={index % 4 === 2 ? "is-outline" : undefined}>
+                  {word}
+                </span>
+                <i>✦</i>
               </span>
             ))}
           </div>

@@ -2,9 +2,9 @@ import { useRef } from "react";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Intro } from "./components/Intro";
-import { Region } from "./components/Region";
-import { Categories } from "./components/Categories";
-import { Finale } from "./components/Finale";
+import { Gallery } from "./components/Gallery";
+import { Territory } from "./components/Territory";
+import { Visit } from "./components/Visit";
 import { Footer } from "./components/Footer";
 import { useSiteMotion } from "./hooks/useSiteMotion";
 
@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <div ref={root} className="site">
-      <a className="skip" href="#descubrir">
+      <a className="skip" href="#xala">
         Saltar al contenido
       </a>
       <div className="progress" aria-hidden="true">
@@ -27,9 +27,9 @@ export default function App() {
       <main>
         <Hero />
         <Intro />
-        <Region />
-        <Categories />
-        <Finale />
+        <Gallery />
+        <Territory />
+        <Visit />
       </main>
 
       <Footer />

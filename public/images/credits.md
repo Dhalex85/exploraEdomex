@@ -7,19 +7,19 @@ en tiempo de ejecución.
 **Criterio editorial:** ninguna fotografía se presenta como un sitio de Axapusco
 u Otumba si no lo es. Las imágenes que funcionan como atmósfera se rotulan en la
 interfaz como *imagen ambiental* y en esta lista se indica su ubicación real
-cuando se conoce. Las fotografías de Otumba y Teotihuacán corresponden a esos
-lugares.
+cuando se conoce. Las fotografías de Axapusco, Otumba y Teotihuacán corresponden
+a esos lugares.
 
 ---
 
-## 1. Hero — `hero-1600.webp`, `hero-2400.webp`
+## 1. Portada — `hero-1600.webp`, `hero-2400.webp`
 
 - **Archivo original:** `assets-src/hero.jpg`
 - **Autor:** Josué Rodríguez
 - **Fuente:** Pexels
 - **URL:** https://www.pexels.com/photo/27363404/
 - **Licencia:** Licencia Pexels — https://www.pexels.com/license/
-- **Uso en la página:** fondo del hero.
+- **Uso en la página:** fotografía principal del collage de portada.
 - **Nota:** la ficha de Pexels es ambigua: la URL menciona "Mexican State of
   Mexico", pero la descripción del mismo archivo dice "Sierra Gorda mountain
   landscape in Pinal de Amoles". Por eso la imagen se rotula únicamente como
@@ -34,9 +34,9 @@ lugares.
 - **URL:** https://www.pexels.com/photo/14541409/
 - **Licencia:** Licencia Pexels — https://www.pexels.com/license/
 - **Ubicación real:** Amecameca de Juárez, Estado de México.
-- **Uso:** placa vertical de la sección "La mirada".
+- **Uso:** placa vertical del mosaico de la sección "Descubrir".
 
-## 3. Región — `axapusco-altura-1100.webp`, `axapusco-altura-1600.webp`
+## 3. Altiplano — `axapusco-altura-1100.webp`, `axapusco-altura-1600.webp`
 
 - **Archivo original:** `assets-src/axapusco.jpg`
 - **Autor:** Amar Preciado
@@ -44,10 +44,10 @@ lugares.
 - **URL:** https://www.pexels.com/photo/34854584/
 - **Licencia:** Licencia Pexels — https://www.pexels.com/license/
 - **Ubicación real:** Guanajuato, México.
-- **Uso:** banda panorámica de la primera región. Rotulada como *imagen
-  ambiental*, no como paisaje de Axapusco.
+- **Uso:** placa de cierre de la galería "Miradas". Se rotula como *imagen
+  ambiental* y nunca como paisaje de Axapusco.
 
-## 4. Otumba — `otumba-plaza-700.webp`, `otumba-plaza-1000.webp`
+## 4. Plaza de Otumba — `otumba-plaza-700.webp`, `otumba-plaza-1000.webp`
 
 - **Archivo original:** `assets-src/otumba.jpg`
 - **Autor:** Subsecretaría de Turismo del Estado de México
@@ -55,19 +55,19 @@ lugares.
 - **URL:** https://commons.wikimedia.org/wiki/File:Plaza_Central_y_Quiosco_de_Otumba_01.jpg
 - **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
 - **Ubicación real:** Plaza Central y Quiosco, Otumba, Estado de México.
-- **Uso:** placa vertical del bloque Otumba.
+- **Uso:** placa vertical del bloque Otumba y de la galería "Miradas".
 
-## 5. Destinos — `cat-destinos-800.webp`, `cat-destinos-1200.webp`
+## 5. Universo Destinos — `cat-destinos-700.webp`, `cat-destinos-1000.webp`
 
 - **Archivo original:** `assets-src/destinos.jpg`
-- **Autor:** Amar Preciado
+- **Autor:** Moisés Fonseca
 - **Fuente:** Pexels
-- **URL:** https://www.pexels.com/photo/34854575/
+- **URL:** https://www.pexels.com/photo/35757488/
 - **Licencia:** Licencia Pexels — https://www.pexels.com/license/
 - **Ubicación real:** México (Pexels no especifica el estado).
-- **Uso:** universo "Destinos". Rotulada como *imagen ambiental*.
+- **Uso:** tarjeta "Destinos". Rotulada como *imagen ambiental*.
 
-## 6. Gastronomía — `cat-gastronomia-700.webp`, `cat-gastronomia-1000.webp`
+## 6. Universo Gastronomía — `cat-gastronomia-700.webp`, `cat-gastronomia-1000.webp`
 
 - **Archivo original:** `assets-src/gastro.jpg`
 - **Autor:** Ericka Sánchez
@@ -75,7 +75,8 @@ lugares.
 - **URL:** https://www.pexels.com/photo/37869534/
 - **Licencia:** Licencia Pexels — https://www.pexels.com/license/
 - **Ubicación real:** mercado de la Ciudad de México.
-- **Uso:** universo "Gastronomía". No se presenta como cocina de Otumba.
+- **Uso:** tarjeta "Gastronomía" y galería. Rotulada como *imagen ambiental*; no
+  se presenta como cocina de Otumba.
 
 ## 7. Detalle de gastronomía — `cat-gastronomia-detalle-600.webp`, `cat-gastronomia-detalle-900.webp`
 
@@ -85,9 +86,10 @@ lugares.
 - **URL:** https://www.pexels.com/photo/29530030/
 - **Licencia:** Licencia Pexels — https://www.pexels.com/license/
 - **Ubicación real:** Tizayuca, México.
-- **Uso:** reserva visual de la sección (no se muestra en la retícula principal).
+- **Uso:** plato de mole en la sección "Gastronomía" y galería. Rotulado como
+  *imagen ambiental · Tizayuca, México*.
 
-## 8. Experiencias — `cat-experiencias-800.webp`, `cat-experiencias-1200.webp`
+## 8. Universo Experiencias — `cat-experiencias-800.webp`, `cat-experiencias-1200.webp`
 
 - **Archivo original:** `assets-src/experiencias.jpg`
 - **Autor:** Subsecretaría de Turismo del Estado de México
@@ -95,9 +97,9 @@ lugares.
 - **URL:** https://commons.wikimedia.org/wiki/File:Burrolandia,Otumba_01.jpg
 - **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
 - **Ubicación real:** Burrolandia, Otumba, Estado de México.
-- **Uso:** universo "Experiencias".
+- **Uso:** tarjeta "Experiencias" y galería.
 
-## 9. Cultura — `cat-cultura-900.webp`, `cat-cultura-1400.webp`
+## 9. Universo Cultura — `cat-cultura-900.webp`, `cat-cultura-1400.webp`
 
 - **Archivo original:** `assets-src/cultura.jpg`
 - **Autor:** EduardoAmadorA
@@ -105,7 +107,8 @@ lugares.
 - **URL:** https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_del_sol,_vista_a%C3%A9rea.jpg
 - **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
 - **Ubicación real:** Pirámide del Sol, Teotihuacán, Estado de México.
-- **Uso:** universo "Cultura". Se identifica como Teotihuacán, no como Otumba.
+- **Uso:** tarjeta "Cultura" y galería. Se identifica como Teotihuacán, no como
+  Otumba ni como Axapusco.
 
 ## 10. Cierre — `finale-sierra-1600.webp`, `finale-sierra-2400.webp`
 
@@ -120,6 +123,106 @@ lugares.
 
 ---
 
+## Patrimonio de Axapusco
+
+Las cinco imágenes siguientes documentan la Hacienda Real San Miguel Ometusco,
+en Axapusco, Estado de México. Son fotografías de la Subsecretaría de Turismo
+publicadas en Wikimedia Commons bajo CC BY-SA 4.0.
+
+## 11. Hacienda y volcán — `axapusco-panorama-1200.webp`, `axapusco-panorama-1920.webp`
+
+- **Archivo original:** `assets-src/axapusco-panorama.jpg`
+- **Autor:** Subsecretaría de Turismo
+- **Fuente:** Wikimedia Commons
+- **URL:** https://commons.wikimedia.org/wiki/File:San_Miguel_Ometusco,_Axapusco_banner.jpg
+- **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+- **Ubicación real:** Hacienda Real San Miguel Ometusco, Axapusco.
+- **Uso:** panorámica principal del bloque Axapusco.
+
+## 12. Hacienda desde el aire — `axapusco-hacienda-aerea-1000.webp`, `axapusco-hacienda-aerea-1600.webp`
+
+- **Archivo original:** `assets-src/axapusco-hacienda-aerea.jpg`
+- **Autor:** Subsecretaría de Turismo
+- **Fuente:** Wikimedia Commons
+- **URL:** https://commons.wikimedia.org/wiki/File:Vista_aerea_de_Hacienda_Real_San_Miguel_Ometusco,_Axapusco.jpg
+- **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+- **Ubicación real:** Hacienda Real San Miguel Ometusco, Axapusco.
+- **Uso:** placa panorámica de la galería "Miradas".
+
+## 13. Capilla — `axapusco-capilla-1000.webp`, `axapusco-capilla-1600.webp`
+
+- **Archivo original:** `assets-src/axapusco-capilla.jpg`
+- **Autor:** Subsecretaría de Turismo
+- **Fuente:** Wikimedia Commons
+- **URL:** https://commons.wikimedia.org/wiki/File:Fachada_de_la_Capilla_de_Hacienda_Real_San_Miguel_Ometusco,_Axapusco.jpg
+- **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+- **Ubicación real:** Capilla de la Hacienda Real San Miguel Ometusco, Axapusco.
+- **Uso:** placa vertical del bloque Axapusco y galería.
+
+## 14. Patio de la hacienda — `axapusco-hacienda-lateral-1000.webp`, `axapusco-hacienda-lateral-1600.webp`
+
+- **Archivo original:** `assets-src/axapusco-hacienda-lateral.jpg`
+- **Autor:** Subsecretaría de Turismo
+- **Fuente:** Wikimedia Commons
+- **URL:** https://commons.wikimedia.org/wiki/File:Vista_Lateral,_Hacienda_Real_San_Miguel_Ometusco,_Axapusco.jpg
+- **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+- **Ubicación real:** Hacienda Real San Miguel Ometusco, Axapusco.
+- **Uso:** placa lateral del bloque Axapusco y galería.
+
+## 15. Interior de la capilla — `axapusco-capilla-interior-1000.webp`, `axapusco-capilla-interior-1600.webp`
+
+- **Archivo original:** `assets-src/axapusco-capilla-interior.jpg`
+- **Autor:** Subsecretaría de Turismo
+- **Fuente:** Wikimedia Commons
+- **URL:** https://commons.wikimedia.org/wiki/File:Atrio_de_la_Capilla_de_Hacienda_Real_San_Miguel_Ometusco,_Axapusco.jpg
+- **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+- **Ubicación real:** Capilla de la Hacienda Real San Miguel Ometusco, Axapusco.
+- **Uso:** placa de la sección "Cultura" y galería.
+
+## Patrimonio de Otumba
+
+## 16. Letras de Otumba — `otumba-letras-1000.webp`, `otumba-letras-1600.webp`
+
+- **Archivo original:** `assets-src/otumba-letras.jpg`
+- **Autor:** Subsecretaría de Turismo del Estado de México
+- **Fuente:** Wikimedia Commons
+- **URL:** https://commons.wikimedia.org/wiki/File:Plaza_Central_y_Quiosco_de_Otumba_02.jpg
+- **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+- **Ubicación real:** Plaza Central, Otumba, Estado de México.
+- **Uso:** panorámica principal del bloque Otumba y galería.
+
+## 17. Museo del Ferrocarril — `otumba-museo-1000.webp`, `otumba-museo-1600.webp`
+
+- **Archivo original:** `assets-src/otumba-museo.jpg`
+- **Autor:** Subsecretaría de Turismo del Estado de México
+- **Fuente:** Wikimedia Commons
+- **URL:** https://commons.wikimedia.org/wiki/File:Museo_del_Ferrocarril,_Otumba_01.jpg
+- **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+- **Ubicación real:** Museo del Ferrocarril, Otumba, Estado de México.
+- **Uso:** placa de la sección "Cultura" y galería.
+
+## 18. Estación de ferrocarril — `otumba-estacion-1000.webp`, `otumba-estacion-1600.webp`
+
+- **Archivo original:** `assets-src/otumba-estacion.jpg`
+- **Autor:** Subsecretaría de Turismo del Estado de México
+- **Fuente:** Wikimedia Commons
+- **URL:** https://commons.wikimedia.org/wiki/File:Museo_del_Ferrocarril,_Otumba_02.jpg
+- **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+- **Ubicación real:** Antigua estación / Museo del Ferrocarril, Otumba.
+- **Uso:** placa lateral del bloque Otumba y galería.
+
+## 19. Chilaquiles con barbacoa — `otumba-chilaquiles-1000.webp`, `otumba-chilaquiles-1600.webp`
+
+- **Archivo original:** `assets-src/otumba-chilaquiles.jpg`
+- **Autor:** Subsecretaría de Turismo del Estado de México
+- **Fuente:** Wikimedia Commons
+- **URL:** https://commons.wikimedia.org/wiki/File:Chilaquiles_con_barbacoa,_gastronom%C3%ADa_de_Otumba_01.jpg
+- **Licencia:** CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+- **Ubicación real:** Otumba, Estado de México.
+- **Uso:** galería "Miradas" y cierre gastronómico de la edición.
+
+---
+
 ## Transformaciones aplicadas
 
 Las imágenes fueron recortadas a las proporciones de la retícula, convertidas a
@@ -130,13 +233,14 @@ CC BY-SA 4.0.
 
 ## Tipografías
 
-- **Bodoni Moda** — Jonny Pinhorn / Indian Type Foundry. SIL Open Font License 1.1.
-  https://fonts.google.com/specimen/Bodoni+Moda
+- **Instrument Serif** — Rodrigo Fuenzalida / Frag Type. SIL Open Font License 1.1.
+  https://fonts.google.com/specimen/Instrument+Serif
 - **Archivo** — Omnibus-Type. SIL Open Font License 1.1.
   https://fonts.google.com/specimen/Archivo
+- **Archivo Black** — Omnibus-Type. SIL Open Font License 1.1.
+  https://fonts.google.com/specimen/Archivo+Black
 
-Ambas se sirven localmente desde `public/fonts/` como subconjuntos variables en
-WOFF2.
+Las tres se sirven localmente desde `public/fonts/` como subconjuntos WOFF2.
 
 ## Otros recursos
 

@@ -1,74 +1,78 @@
 import { ArrowUpRight } from "lucide-react";
-import { Figure } from "./Figure";
-import { photographs } from "../data/content";
+import { edition, photographs } from "../data/content";
 
 export function Intro() {
+  const photo = photographs.axapuscoHaciendaLateral;
+
   return (
-    <section className="intro section--paper" id="descubrir">
-      <div className="shell">
-        <div className="section-head" data-reveal>
-          <span className="section-tag">
+    <section className="x-intro" id="xala">
+      <div className="x-shell">
+        <div className="x-section-head" data-reveal>
+          <span className="x-label">
             <i aria-hidden="true" />
-            01 — Descubrir
+            01 — El lugar
           </span>
-          <span className="meta section-head__side">Explora Edomex · Edición 01</span>
+          <span className="meta">
+            {edition.name} · {edition.place}
+          </span>
         </div>
 
-        <div className="intro__grid">
-          <h2 className="intro__title" data-reveal>
-            <span className="intro__title-sans">El altiplano</span>
-            <span className="intro__title-serif">tiene otra</span>
-            <span className="intro__title-outline">velocidad.</span>
-          </h2>
+        <div className="x-intro__grid">
+          <div className="x-intro__copy">
+            <h2 className="x-intro__title" data-reveal>
+              <span>El valle,</span>
+              <em>sin prisa.</em>
+            </h2>
 
-          <div className="intro__aside" data-reveal>
-            <p>
-              Una hacienda azul, magueyes y un horizonte que se despeina. Esto
-              es el Edomex que no aparece en los letreros de la carretera.
-            </p>
+            <div className="x-intro__body" data-reveal>
+              <p>
+                Xala está en Axapusco, en el noreste del Estado de México. Una
+                hacienda de muros anchos, magueyes y caminos de tierra;
+                alrededor, los pueblos de la región y el cielo abierto del
+                altiplano.
+              </p>
 
-            <ul className="pill-list" aria-label="Temas de esta edición">
-              <li>Bosque de niebla</li>
-              <li>Hacienda azul</li>
-              <li>2 350 m</li>
-            </ul>
+              <dl className="x-facts">
+                <div>
+                  <dt>Ubicación</dt>
+                  <dd>Axapusco, Estado de México</dd>
+                </div>
+                <div>
+                  <dt>Altitud</dt>
+                  <dd>{edition.altitude}</dd>
+                </div>
+                <div>
+                  <dt>Desde CDMX</dt>
+                  <dd>{edition.distance}</dd>
+                </div>
+              </dl>
 
-            <a className="link-arrow" href="#destinos">
-              <span>Conocer los pueblos</span>
-              <ArrowUpRight size={18} strokeWidth={1.4} aria-hidden="true" />
-            </a>
-          </div>
-        </div>
-
-        <div className="intro__mosaic">
-          <Figure
-            photo={photographs.intro}
-            className="intro__photo intro__photo--tall"
-            sizes="(max-width: 980px) 100vw, 38vw"
-          />
-          <Figure
-            photo={photographs.axapuscoHaciendaLateral}
-            className="intro__photo intro__photo--wide"
-            sizes="(max-width: 980px) 100vw, 48vw"
-          />
-
-          <div className="intro__block" data-reveal>
-            <span className="intro__block-num">01</span>
-            <span className="intro__block-label">
-              Primera edición
-              <br />
-              Altiplano mexicano
-            </span>
-            <span className="intro__block-star" aria-hidden="true">
-              ✦
-            </span>
+              <a className="x-link" href="#axapusco">
+                <span>Seguir al territorio</span>
+                <ArrowUpRight size={16} strokeWidth={1.4} aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
-          <span className="intro__sticker meta" aria-hidden="true">
-            19.72° N
-            <br />
-            98.75° O
-          </span>
+          <figure className="x-intro__media" data-reveal>
+            <div className="x-frame">
+              <img
+                src={photo.src}
+                srcSet={photo.srcSet}
+                sizes="(max-width: 960px) 100vw, 54vw"
+                width={photo.width}
+                height={photo.height}
+                alt={photo.alt}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <figcaption className="x-caption">
+              <span className="x-caption__dot" aria-hidden="true" />
+              <span>{photo.caption}</span>
+              <span>{photo.location}</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

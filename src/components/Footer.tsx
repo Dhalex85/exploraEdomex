@@ -1,76 +1,80 @@
-import { ArrowUp } from "lucide-react";
-import { photographs } from "../data/content";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
+import { edition, photographs } from "../data/content";
 
 const creditList = Object.values(photographs).filter(
-  (photo, index, all) => all.findIndex((item) => item.credit.url === photo.credit.url) === index,
+  (photo, index, all) =>
+    all.findIndex((item) => item.credit.url === photo.credit.url) === index,
 );
 
 export function Footer() {
   return (
-    <footer className="footer" id="creditos">
-      <div className="shell">
-        <div className="footer__top">
-          <div className="footer__brand">
-            <p className="footer__mark display" aria-label="Explora Edomex">
-              Explora
-              <br />
-              <span>Edomex</span>
-              <i className="dot">.</i>
+    <footer className="x-footer" id="creditos">
+      <div className="x-shell">
+        <div className="x-footer__top">
+          <div className="x-footer__brand">
+            <span className="x-footer__kicker">{edition.kicker}</span>
+            <p className="x-footer__mark">
+              Xala
+              <em>Axapusco</em>
             </p>
-            <p className="footer__tag">
-              Más que destinos, experiencias que merecen ser descubiertas.
+            <p className="x-footer__tag">
+              Una hacienda en el altiplano. Una guía para llegar sin prisa.
             </p>
           </div>
 
-          <nav className="footer__cols" aria-label="Enlaces del pie">
-            <div className="footer__col">
-              <h2 className="meta">Explorar</h2>
-              <a href="#descubrir">Descubrir</a>
-              <a href="#universos">Universos</a>
-              <a href="#explorar">Comenzar a explorar</a>
+          <nav className="x-footer__cols" aria-label="Enlaces del pie">
+            <div>
+              <h2>Explorar</h2>
+              <a href="#xala">El lugar</a>
+              <a href="#galeria">Galería</a>
+              <a href="#axapusco">Alrededores</a>
+              <a href="#visita">Visita</a>
             </div>
-            <div className="footer__col">
-              <h2 className="meta">Región</h2>
-              <a href="#destinos">Axapusco</a>
-              <a href="#destinos">Otumba</a>
-              <a href="#cultura">Teotihuacán</a>
+            <div>
+              <h2>Región</h2>
+              <a href="#axapusco">Axapusco</a>
+              <a href="#axapusco">Otumba</a>
+              <a href="#axapusco">Teotihuacán</a>
             </div>
-            <div className="footer__col">
-              <h2 className="meta">Información</h2>
-              <a href="#destinos">Aviso editorial</a>
-              <span className="footer__muted">Contacto · próximamente</span>
+            <div>
+              <h2>Información</h2>
               <a
-                href="/images/credits.md"
+                href={`${import.meta.env.BASE_URL}images/credits.md`}
                 target="_blank"
                 rel="noreferrer"
               >
                 Créditos completos
               </a>
+              <a href="#creditos">Nota editorial</a>
+              <span>Contacto · próximamente</span>
             </div>
           </nav>
         </div>
 
-        <details className="footer__credits">
+        <div className="x-footer__next">
+          <span className="meta">Explora Edomex crece</span>
+          <p>
+            Próximas ediciones: <em>Otumba</em> y <em>Teotihuacán</em>.
+          </p>
+        </div>
+
+        <details className="x-footer__credits">
           <summary>
             <span className="meta">Créditos fotográficos</span>
-            <span className="footer__summary-note">
-              Diez fotografías, todas documentadas
+            <span className="x-footer__summary-note">
+              Todas las imágenes, documentadas
             </span>
           </summary>
           <ul>
             {creditList.map((photo) => (
               <li key={photo.credit.url}>
-                <a
-                  href={photo.credit.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={photo.credit.url} target="_blank" rel="noreferrer">
                   {photo.credit.author}
                 </a>
                 <span>
                   {photo.caption} · {photo.location}
                 </span>
-                <span className="footer__license">
+                <span className="x-footer__license">
                   {photo.credit.source} · {photo.credit.license}
                 </span>
               </li>
@@ -78,11 +82,13 @@ export function Footer() {
           </ul>
         </details>
 
-        <div className="footer__bottom">
+        <div className="x-footer__bottom">
           <span>© 2026 Explora Edomex</span>
-          <span className="footer__made">Hecho en el Estado de México</span>
+          <span>
+            Xala · Axapusco <ArrowUpRight size={11} strokeWidth={1.5} aria-hidden="true" />
+          </span>
           <a href="#top">
-            Volver arriba
+            <span>Volver arriba</span>
             <ArrowUp size={13} strokeWidth={1.5} aria-hidden="true" />
           </a>
         </div>
