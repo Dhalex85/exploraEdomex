@@ -13,7 +13,7 @@ export function PhotoImage({
 
 export function PhotoCredit({ photo }: { photo: Photo }) {
   return <span className="photo-credit">
-    Foto: <a href={photo.credit.url} target="_blank" rel="noreferrer">{photo.credit.author}</a>
-    {" · "}<a href={photo.credit.licenseUrl} target="_blank" rel="noreferrer">{photo.credit.license}</a>
+    Foto: {photo.credit.url ? <a href={photo.credit.url} target="_blank" rel="noreferrer">{photo.credit.author}</a> : photo.credit.author}
+    {photo.credit.license && <> · {photo.credit.licenseUrl ? <a href={photo.credit.licenseUrl} target="_blank" rel="noreferrer">{photo.credit.license}</a> : photo.credit.license}</>}
   </span>;
 }

@@ -21,7 +21,7 @@ Portada: “Edomex, a otra altura”. Paisaje aéreo de referencia de Villa del 
 - Solar #F4C34E para detalles; bugambilia #A74483 y coral #F15A38 en las tarjetas.
 La identidad no implica presentar las fotos temporales como material propio.
 
-Las fotografías actuales son referencias para previsualizar el futuro material de autoría del equipo. La portada de inicio muestra esa condición y los créditos explican la sustitución pendiente. El video de Otumba sí es material propio proporcionado por el equipo. No se añadieron fotografías ajenas al restaurante: conserva su estado pendiente.
+La portada de inicio y las fotografías documentales de municipios y estación son referencias acreditadas. El video de Otumba y la nueva fotografía de la fachada del Restaurante San Francisco sí son material propio proporcionado por el equipo. El restaurante ya tiene portada, tarjetas y galería; conserva únicamente los datos confirmados de nombre y ubicación y una descripción de lo visible en la foto.
 
 ## Video de Otumba
 Primera edición se integra en la portada del municipio, con composición editorial de texto y reproductor vertical. El encuadre conserva toda la imagen útil del original; solo se retiran las franjas negras laterales. Póster real del segundo 8, reproducción voluntaria, pausa y controles nativos. No hay autoplay ni reproducción en bucle. Descripción visual desplegable para accesibilidad; el original contiene una pista de audio completamente vacía.
@@ -45,11 +45,11 @@ La cámara responde al cursor en escritorio y el paisaje acompaña el scroll. El
 - TypeScript y build de GitHub Pages correctos; base raíz revisada en desarrollo.
 - Inicio, desplegable, municipios, fichas y enlaces de destacados comprobados.
 - Escritorio 1440 × 960 y móviles 390 × 844 / 320 × 740 revisados; sin desbordamiento horizontal en las vistas comprobadas.
-- Jerarquía Municipio → Lugar y localidad Xala verificada; estado pendiente del restaurante conservado.
+- Jerarquía Municipio → Lugar y localidad Xala verificadas; fotografía real del restaurante incorporada y galería de una imagen sin controles de navegación redundantes.
 - Menú con teclado, Escape, devolución de foco y ciclo Tab/Shift+Tab comprobados.
 - Consolas revisadas sin errores ni advertencias, también en la compilación bajo /exploraEdomex/.
 - Historial y anclas conservan el comportamiento de la reparación previa.
-- JS principal: 73.58 KB gzip; CSS: 8.71 KB gzip; módulos de movimiento: 46.39 KB gzip bajo demanda.
+- JS principal: 73.84 KB gzip; CSS: 8.72 KB gzip; módulos de movimiento: 46.39 KB gzip bajo demanda.
 - Video de Otumba: reproducción y pausa con teclado, versión móvil, póster, navegación a la estación y decodificación completa de ambos MP4 comprobados. Revisión adicional bajo la base de GitHub Pages.
 - Portada móvil: unos 110 KB. El PNG original del logo pesa 1.43 MB y se conserva.
 No se midieron Lighthouse/Core Web Vitals, no se probaron dispositivos físicos y la auditoría manual no es una certificación WCAG.

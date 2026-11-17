@@ -24,14 +24,14 @@ export function DestinationPage() {
   return <>
     {hero ? <>
       <section className="place-hero" aria-labelledby="place-title">
-        <PhotoImage photo={hero} eager />
+        <PhotoImage photo={hero} eager sizes={`(max-width: 759px) ${Math.ceil(610 * hero.width / hero.height)}px, 100vw`} />
         <div className="place-hero-veil" aria-hidden="true" />
         <div className="shell place-hero-inner"><Breadcrumbs light items={crumbs} /><div className="place-hero-copy"><p className="location-kicker"><MapPin size={17} aria-hidden="true" />{municipality.name} · {destination.category}</p><h1 id="place-title">{destination.name}</h1><Link className="button button-light" to={`${placePath(destination)}#galeria`}><Images size={19} aria-hidden="true" />Abrir su galería</Link></div><p className="place-hero-caption">{hero.caption}</p></div>
       </section>
       <div className="shell cover-credit"><PhotoCredit photo={hero} /></div>
     </> : <div className="shell pending-place-heading"><Breadcrumbs items={crumbs} /><div className="pending-place-title"><p className="section-kicker">{municipality.name} · {location?.locality}</p><h1 id="place-title">{destination.name}</h1><span className="status">Ficha en preparación</span></div><div className="pending-cover"><Camera size={40} strokeWidth={1.2} aria-hidden="true" /><p>Las fotografías de este lugar<br />están por llegar.</p><span>Restaurante San Francisco · Xala</span></div></div>}
     <section className="shell destination-story section-space" aria-labelledby="story-title">
-      <div><p className="section-kicker">{destination.status === "pending" ? "Axapusco · Xala" : "Conoce el lugar"}</p><h2 id="story-title">{destination.status === "pending" ? "Restaurante San Francisco" : "Una mirada desde el andén."}</h2></div>
+      <div><p className="section-kicker">{destination.status === "pending" ? "Axapusco · Xala" : "Conoce el lugar"}</p><h2 id="story-title">{destination.storyTitle ?? (destination.status === "pending" ? destination.name : "Una mirada desde el andén.")}</h2></div>
       <div className="story-copy">{destination.description.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         {destination.sources?.map((source) => <a className="source-link" key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.title}<ArrowRight size={16} aria-hidden="true" /></a>)}
         {destination.practical && destination.practical.length > 0 && <dl className="practical-info">{destination.practical.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value} <a href={fact.sourceUrl} target="_blank" rel="noreferrer">Fuente</a></dd></div>)}</dl>}

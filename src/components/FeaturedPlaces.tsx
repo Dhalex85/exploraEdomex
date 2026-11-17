@@ -14,7 +14,7 @@ export function FeaturedPlaces() {
       if (!place) return null;
       return <article key={place.id} className={`featured-place ${place.hero ? "" : "featured-place--pending"}`}>
         <Link to={placePath(place)} className="featured-place-link" aria-label={`Descubrir ${place.name}`}>
-          {place.hero ? <><PhotoImage photo={place.hero} sizes="(min-width: 760px) 65vw, 100vw" /><span className="featured-reference"><Camera size={13} aria-hidden="true" />Fotografía de referencia</span></> : <div className="featured-pending-art" aria-hidden="true"><span /><Aperture size={80} strokeWidth={.7} /></div>}
+          {place.hero ? <><PhotoImage photo={place.hero} sizes="(min-width: 760px) 65vw, 100vw" /><span className="featured-reference"><Camera size={13} aria-hidden="true" />{place.hero.origin === "team" ? "Fotografía propia" : "Fotografía de referencia"}</span></> : <div className="featured-pending-art" aria-hidden="true"><span /><Aperture size={80} strokeWidth={.7} /></div>}
           <div className="featured-place-copy"><p>{place.location?.town}{place.location?.locality ? ` / ${place.location.locality}` : ""}</p><h3>{place.name}</h3><span className="featured-place-cta">{place.hero ? "Descubrir el lugar" : "Ver ficha en preparación"}<ArrowUpRight size={22} aria-hidden="true" /></span>{!place.hero && <small>Fotografías propias por incorporar</small>}</div>
         </Link>
       </article>;

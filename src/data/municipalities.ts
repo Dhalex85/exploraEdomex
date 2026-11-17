@@ -21,7 +21,7 @@ const axapuscoCard = municipalPhoto("axapusco-patio", "patio",
 export const municipalities: Municipality[] = [
   { slug: "axapusco", name: "Axapusco", region: "Estado de México", hero: homeHero, card: axapuscoCard,
     coverLabel: "San Miguel Ometusco",
-    description: "Nuestra primera parada en Axapusco está en Xala: el Restaurante San Francisco. Su ficha está en preparación, a la espera de las fotografías y la descripción del lugar." },
+    description: "Nuestra primera parada en Axapusco está en Xala: el Restaurante San Francisco. Conoce su fachada y abre la fotografía para verla completa." },
   { slug: "otumba", name: "Otumba", region: "Estado de México", hero: getDestination("estacion-otumba")!.hero!, card: getDestination("estacion-otumba")!.hero!,
     coverLabel: "Estación del Ferrocarril",
     description: "Una primera mirada a Otumba desde su Estación del Ferrocarril. Recorre las fotografías del andén y del Museo del Ferrocarril." },

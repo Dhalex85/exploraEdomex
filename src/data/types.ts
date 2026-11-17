@@ -1,9 +1,9 @@
 export type Credit = {
   author: string;
   source: string;
-  url: string;
-  license: string;
-  licenseUrl: string;
+  url?: string;
+  license?: string;
+  licenseUrl?: string;
 };
 
 export type Photo = {
@@ -15,6 +15,7 @@ export type Photo = {
   alt: string;
   caption: string;
   place: string;
+  origin?: "team" | "reference";
   credit: Credit;
 };
 
@@ -27,6 +28,7 @@ export type Destination = {
   location?: { town: string; region: string; locality?: string };
   summary: string;
   description: string[];
+  storyTitle?: string;
   status: "ready" | "pending";
   hero?: Photo;
   gallery: Photo[];

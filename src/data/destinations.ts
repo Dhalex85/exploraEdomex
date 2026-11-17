@@ -60,7 +60,19 @@ const tracks = photo(
   "Museo_del_Ferrocarril,_Otumba_02.jpg",
 );
 
-/** Exactly two initial entries. Pending content is never represented by stock photos. */
+const sanFrancisco: Photo = {
+  id: "san-francisco-fachada",
+  src: asset("images/destinos/restaurante-san-francisco/portada-1448.webp"),
+  srcSet: set([640, 1000, 1448].map((w) => ({ file: `images/destinos/restaurante-san-francisco/portada-${w}.webp`, w }))),
+  width: 1448, height: 679,
+  alt: "Fachada amarilla de dos plantas del Restaurante San Francisco, con arcos, columnas blancas y muros de piedra bajo un cielo azul.",
+  caption: "La fachada del Restaurante San Francisco",
+  place: "Xala, Axapusco, Estado de México",
+  origin: "team",
+  credit: { author: "EXPLORA EDOMEX", source: "Material propio proporcionado por el equipo" },
+};
+
+/** Exactly two initial entries. Only supplied or documented photographs. */
 export const destinations: Destination[] = [
   {
     id: "estacion-otumba",
@@ -84,19 +96,21 @@ export const destinations: Destination[] = [
   },
   {
     id: "restaurante-san-francisco",
-    // Nombre y jerarquía proporcionados por el equipo; fotografías pendientes.
+    // Nombre, jerarquía y fotografía proporcionados por el equipo.
     slug: "restaurante-san-francisco",
     municipalitySlug: "axapusco",
     name: "Restaurante San Francisco",
     category: "Gastronomía",
     location: { town: "Axapusco", locality: "Xala", region: "Estado de México" },
-    summary: "En Xala, municipio de Axapusco. Estamos preparando una mirada al Restaurante San Francisco con sus fotografías y descripción confirmadas.",
+    summary: "Una primera mirada al Restaurante San Francisco, en Xala, municipio de Axapusco. Conoce su fachada y abre la fotografía para verla completa.",
+    storyTitle: "Una primera mirada a San Francisco.",
     description: [
       "Restaurante San Francisco se encuentra en Xala, municipio de Axapusco, Estado de México.",
-      "Las fotografías y la descripción del restaurante están pendientes de incorporar. La información de visita se añadirá cuando esté confirmada.",
+      "Su fachada amarilla, los arcos del balcón y los muros de piedra protagonizan esta primera fotografía del lugar.",
     ],
-    status: "pending",
-    gallery: [],
+    status: "ready",
+    hero: sanFrancisco,
+    gallery: [sanFrancisco],
   },
 ];
 

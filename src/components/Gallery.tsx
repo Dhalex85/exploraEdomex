@@ -14,7 +14,7 @@ export function Gallery({ photos }: { photos: Photo[] }) {
         <div><p className="section-kicker">Mira más de cerca</p><h2 id="gallery-title">Galería fotográfica</h2></div>
         <p>Abre una fotografía para verla completa.</p>
       </div>
-      <div className="photo-grid">
+      <div className={`photo-grid${photos.length === 1 ? " photo-grid--single" : ""}`}>
         {photos.map((photo, index) => <figure className={`photo-item photo-item--${index + 1}`} key={photo.id}>
           <button className="photo-open" type="button" onClick={() => setActive(index)} aria-label={`Ampliar: ${photo.caption}`} aria-haspopup="dialog">
             <PhotoImage photo={photo} sizes={index === 0 ? "100vw" : "(min-width: 760px) 50vw, 100vw"} />

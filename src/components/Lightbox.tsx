@@ -46,6 +46,6 @@ export function Lightbox({ photos, index, onClose, onNavigate }: Props) {
       <PhotoImage photo={photo} eager sizes="94vw" />
       <figcaption id="lightbox-caption"><span className="photo-caption" aria-live="polite">{photo.caption}</span><PhotoCredit photo={photo} /></figcaption>
     </figure>
-    <div className="lightbox-controls"><button type="button" onClick={() => onNavigate((index - 1 + photos.length) % photos.length)} aria-label="Fotografía anterior"><ArrowLeft size={21} aria-hidden="true" /><span>Anterior</span></button><span className="lightbox-hint">← → para explorar · Esc para cerrar</span><button type="button" onClick={() => onNavigate((index + 1) % photos.length)} aria-label="Fotografía siguiente"><span>Siguiente</span><ArrowRight size={21} aria-hidden="true" /></button></div>
+    {photos.length > 1 && <div className="lightbox-controls"><button type="button" onClick={() => onNavigate((index - 1 + photos.length) % photos.length)} aria-label="Fotografía anterior"><ArrowLeft size={21} aria-hidden="true" /><span>Anterior</span></button><span className="lightbox-hint">← → para explorar · Esc para cerrar</span><button type="button" onClick={() => onNavigate((index + 1) % photos.length)} aria-label="Fotografía siguiente"><span>Siguiente</span><ArrowRight size={21} aria-hidden="true" /></button></div>}
   </dialog>, document.body);
 }

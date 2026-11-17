@@ -1,6 +1,6 @@
 # Créditos fotográficos — Explora Edomex, Edición 01
 
-Todas las imágenes de este prototipo son fotografías reales, descargadas y
+Todas las imágenes de este prototipo son fotografías reales, aportadas por el equipo o descargadas y
 servidas localmente desde `public/images/`. No se utilizan servicios de imágenes
 en tiempo de ejecución.
 
@@ -269,3 +269,14 @@ Las tres se sirven localmente desde `public/fonts/` como subconjuntos WOFF2.
 - La fuente identifica la toma aérea en Villa del Carbón, Estado de México.
 - Referencia temporal para previsualizar el diseño; no es material de autoría de EXPLORA EDOMEX ni agrega un municipio al catálogo. Se sustituirá por fotografía propia del equipo.
 - Tratamiento: recorte, reducción y WebP. Los velos de contraste y el movimiento se aplican en la interfaz.
+
+## Restaurante San Francisco — fotografía propia
+
+- Fotografía aportada por el usuario: `portada.jpg`, Restaurante San Francisco, Xala, Axapusco.
+- Copia de trabajo intacta: `assets-src/san-francisco-portada.jpg`, 1448 × 679 px.
+- SHA-256: `bad695dde134d11928b0d0a24a1c30aa62d851f17f36be171094d25a4432f618`.
+- Autoría: equipo EXPLORA EDOMEX, según la indicación del usuario sobre el material del proyecto. No se atribuye a un tercero ni se asigna una licencia abierta.
+- Uso: portada y galería del restaurante, tarjeta en Axapusco y lugares destacados del inicio.
+- Versiones: `images/destinos/restaurante-san-francisco/portada-640.webp`, `portada-1000.webp`, `portada-1448.webp`.
+- Tratamiento: orientación y reducción proporcional, WebP calidad 86; sin alteración de color, retoque ni generación de contenido. La galería muestra la proporción completa; los encuadres de portada y tarjetas se aplican con CSS.
+- Regeneración: `node scripts/prepare-san-francisco-cover.mjs`.

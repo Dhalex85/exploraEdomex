@@ -32,7 +32,7 @@ Se conservan las redirecciones de /destinos/estacion-otumba, /destinos/restauran
 - src/components/FeaturedPlaces.tsx: selección editorial de fichas existentes.
 - src/data/assets.ts: BASE_URL para archivos públicos y srcSet.
 - src/data/cover.ts: paisaje temporal de referencia, pendiente de sustituir por fotografía propia.
-El restaurante conserva nombre y ubicación proporcionados por el equipo; sus fotos y descripción siguen pendientes. Las imágenes de San Miguel Ometusco no se presentan como fotos de Xala ni del restaurante.
+El restaurante conserva nombre y ubicación proporcionados por el equipo. Su portada, tarjetas y galería usan la fotografía real de la fachada proporcionada por el usuario (`assets-src/san-francisco-portada.jpg`), con versiones WebP de 640, 1000 y 1448 px. Regeneración: `node scripts/prepare-san-francisco-cover.mjs`. La galería y el visor muestran la toma completa. No se añadieron horarios, menú ni otros datos sin confirmar. Las imágenes de San Miguel Ometusco no se presentan como fotos de Xala ni del restaurante.
 
 La portada actual usa una fotografía aérea de Villa del Carbón de Oscar Garcia Medina (Pexels), identificada como referencia y acreditada. No añade una ficha al catálogo. Las fotos de municipios y estación también son referencias documentales acreditadas. Se sustituirán por material propio del equipo; no se atribuyen a EXPLORA EDOMEX.
 
@@ -51,7 +51,7 @@ Blanco/grafito, azul de acción, solar y acentos bugambilia/coral. Georgia para 
 
 ## Verificación y entrega
 Auditoría y límites en DESIGN-RESCUE.md. TypeScript/build:pages correctos. Inicio, menú agrupado, fichas y destacados revisados en escritorio y móvil; consola sin errores en las vistas comprobadas.
-JS principal: 73.58 KB gzip; CSS: 8.71 KB gzip. Reproducción, pausa y selección de la versión móvil comprobadas; ambos MP4 se decodificaron completos sin errores. No se midieron Lighthouse/Core Web Vitals ni dispositivos físicos.
+JS principal: 73.84 KB gzip; CSS: 8.72 KB gzip. Reproducción, pausa y selección de la versión móvil comprobadas; ambos MP4 se decodificaron completos sin errores. La portada del restaurante, sus tarjetas y la galería se comprobaron en escritorio y móvil; original conservado sin cambios. No se midieron Lighthouse/Core Web Vitals ni dispositivos físicos.
 
 Capturas actuales: C:/Users/dany/.codex/visualizations/2026/11/17/01a1eaa6-e1cb-7743-ad83-133e0d617d5f/reparacion-edomex/
 
