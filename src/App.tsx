@@ -1,18 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { HashRouter, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import { Nav } from "./components/Nav";
-import { Hero } from "./components/Hero";
-import { Destinations } from "./components/Destinations";
+import { HomePage } from "./pages/HomePage";
 import { Footer } from "./components/Footer";
 import { DestinationPage, NotFound } from "./pages/DestinationPage";
 import { MunicipalityPage } from "./pages/MunicipalityPage";
 import { getDestination, placePath } from "./data/destinations";
 import { getMunicipality } from "./data/municipalities";
 import { site } from "./data/site";
+import { useRouteScroll } from "./hooks/useRouteScroll";
 
 function RouteEffects() {
   const location = useLocation();
-  const previousPath = useRef(location.pathname);
+  useRouteScroll();
   useEffect(() => {
     const segments = location.pathname.split("/").filter(Boolean);
     const destination = segments[2] === "lugares" ? getDestination(segments[3] ?? "") : undefined;
@@ -25,18 +25,7 @@ function RouteEffects() {
     document.querySelector('meta[name="description"]')?.setAttribute("content", description);
     document.querySelector('meta[property="og:title"]')?.setAttribute("content", title);
     document.querySelector('meta[property="og:description"]')?.setAttribute("content", description);
-    const frame = requestAnimationFrame(() => {
-      const id = location.hash === "#destinos" ? "municipios" : location.hash.slice(1);
-      const target = id ? document.getElementById(id) : null;
-      if (target) target.scrollIntoView({ behavior: "instant" });
-      else window.scrollTo({ top: 0, behavior: "instant" });
-      if (previousPath.current !== location.pathname) {
-        document.getElementById("contenido")?.focus({ preventScroll: true });
-        previousPath.current = location.pathname;
-      }
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [location.pathname, location.hash, location.key]);
+  }, [location.pathname]);
   return null;
 }
 function LegacyPlace() {
@@ -45,6 +34,7 @@ function LegacyPlace() {
   return destination ? <Navigate to={placePath(destination)} replace /> : <NotFound />;
 }
 function Layout() {
+  const home = useLocation().pathname === "/";
   return <>
     <RouteEffects />
     <a className="skip-link" href="#contenido" onClick={(event) => {
@@ -53,9 +43,9 @@ function Layout() {
       document.getElementById("contenido")?.scrollIntoView();
     }}>Saltar al contenido</a>
     <Nav />
-    <main id="contenido" tabIndex={-1}>
+    <main id="contenido" className={`page-main ${home ? "page-main--home" : ""}`} tabIndex={-1}>
       <Routes>
-        <Route path="/" element={<><Hero /><Destinations /></>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/municipios/:municipalitySlug" element={<MunicipalityPage />} />
         <Route path="/municipios/:municipalitySlug/lugares/:slug" element={<DestinationPage />} />
         <Route path="/destinos/:slug" element={<LegacyPlace />} />

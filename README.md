@@ -1,62 +1,58 @@
 # EXPLORA EDOMEX
 
-Plataforma editorial de exploración fotográfica en React 18, TypeScript y Vite. Esta versión contiene exclusivamente:
-- Estado de México → Axapusco → Xala → Restaurante San Francisco.
-- Estado de México → Otumba → Estación del Ferrocarril.
+Plataforma editorial de exploración y fotografía del Estado de México. React 18, TypeScript, Vite y HashRouter.
+
+## Alcance
+Estado de México → Municipio → Localidad opcional → Lugar.
+- Axapusco → Xala → Restaurante San Francisco.
+- Otumba → Estación del Ferrocarril.
+
+La barra principal es **Inicio · Municipios ▾ · Lugares destacados**. Los municipios se agrupan dentro del menú y cada municipio contiene sus lugares. La galería pertenece a cada ficha; no existe una galería global que envíe a Otumba.
 
 ## Desarrollo
-- `npm install` solo si faltan dependencias.
-- `npm run dev`: servidor local.
-- `npm run build`: TypeScript estricto y compilación con base raíz.
-- `npm run build:pages`: compilación para `/exploraEdomex/`.
-- `npm run preview -- --base=/exploraEdomex/`: inspeccionar ese resultado.
-No hay configuración de lint. No se añadieron paquetes durante el rescate visual.
+- npm install, solo si faltan dependencias.
+- npm run dev: desarrollo local.
+- npm run build: tipos estrictos y compilación con base raíz.
+- npm run build:pages: compilación para /exploraEdomex/.
+- npm run preview -- --base=/exploraEdomex/: revisar esa compilación.
+No hay configuración de lint. No se añadieron dependencias durante esta reparación.
 
 ## Rutas
-Se conserva HashRouter, compatible con enlaces directos y recargas en hosting estático:
-- `/#/`
-- `/#/municipios/axapusco`
-- `/#/municipios/otumba`
-- `/#/municipios/axapusco/lugares/restaurante-san-francisco`
-- `/#/municipios/otumba/lugares/estacion-otumba`
+- /#/ — inicio, con anclas #municipios y #destacados.
+- /#/municipios/axapusco
+- /#/municipios/otumba
+- /#/municipios/axapusco/lugares/restaurante-san-francisco
+- /#/municipios/otumba/lugares/estacion-otumba
 
-Las rutas anteriores `/destinos/estacion-otumba`, `/destinos/restaurante-san-francisco` y `/destinos/mi-restaurante` redirigen a las fichas correspondientes. Una combinación incorrecta de municipio y lugar muestra la página de recuperación.
+Se conservan las redirecciones de /destinos/estacion-otumba, /destinos/restaurante-san-francisco y /destinos/mi-restaurante. Las combinaciones inválidas muestran la recuperación de ruta.
 
 ## Contenido y fotografías
-- `src/data/municipalities.ts`: portadas y datos de Axapusco y Otumba.
-- `src/data/destinations.ts`: las dos fichas de lugares.
-- `municipalitySlug` vincula cada ficha con su municipio.
-- `location.locality` es opcional; en el restaurante es Xala.
-- `src/data/assets.ts` respeta `import.meta.env.BASE_URL` para fotos, logo y srcSet.
+- src/data/municipalities.ts: municipios y sus portadas.
+- src/data/destinations.ts: lugares; municipalitySlug relaciona cada uno con su municipio y location.locality es opcional.
+- src/components/FeaturedPlaces.tsx: selección editorial de fichas existentes.
+- src/data/assets.ts: BASE_URL para archivos públicos y srcSet.
+- src/data/cover.ts: paisaje temporal de referencia, pendiente de sustituir por fotografía propia.
+El restaurante conserva nombre y ubicación proporcionados por el equipo; sus fotos y descripción siguen pendientes. Las imágenes de San Miguel Ometusco no se presentan como fotos de Xala ni del restaurante.
 
-El Restaurante San Francisco tiene su nombre y ubicación proporcionados por el equipo. Sus fotos y descripción confirmada siguen pendientes. No se presentan imágenes de otros restaurantes como suyas. Las imágenes municipales de Axapusco corresponden a San Miguel Ometusco, con ese nombre visible; no se rotulan como Xala ni como el restaurante.
+La portada actual usa una fotografía aérea de Villa del Carbón de Oscar Garcia Medina (Pexels), identificada como referencia y acreditada. No añade una ficha al catálogo. Las fotos de municipios y estación también son referencias documentales acreditadas. Se sustituirán por material propio del equipo; no se atribuyen a EXPLORA EDOMEX.
 
-Para completar la ficha del restaurante:
-1. Colocar sus fotografías confirmadas en `public/images/destinos/restaurante-san-francisco/`.
-2. Registrar dimensiones reales, versiones responsivas, texto alternativo, pie y crédito/licencia en un objeto Photo.
-3. Incorporar `hero`, `gallery`, descripción confirmada y datos prácticos opcionales con `sourceUrl`.
-4. Cambiar `status` de `pending` a `ready` al completar la ficha y revisar el navegador.
+Regeneración de la portada: node scripts/prepare-aerial-cover.mjs.
+Regeneración de fotografías documentales: node scripts/prepare-editorial-images.mjs.
+El script antiguo prepare-destination-images.mjs contiene referencias de otros restaurantes: no usarlas como fotos de San Francisco.
 
-`node scripts/prepare-editorial-images.mjs` genera versiones WebP de las fotografías documentales ya existentes; no procesa el logo. El script antiguo `prepare-destination-images.mjs` incluye imágenes de referencia de restaurantes: no usarlas como fotografías del Restaurante San Francisco.
+Otumba incorpora **Primera edición**, video aéreo propio del equipo, como portada editorial vertical. Reproducción bajo demanda, controles nativos, descripción visual accesible y póster extraído del video. MP4 optimizados de 36.2 MB (608 × 1080) y 14.6 MB (406 × 720, móvil). El original de 302 MB permanece intacto fuera del repositorio; solo se eliminaron sus franjas negras y su pista de audio vacía. Preparación y datos técnicos en public/videos/otumba/README.md. Las fotografías documentales de las fichas conservan sus créditos independientes.
 
-## Identidad vigente: México Vivo
-La estructura y composición se basan en la referencia visual proporcionada. La última dirección cromática sustituye la paleta petróleo/mineral/cobre:
-- Fondo principal: blanco puro #FFFFFF; fondo secundario: gris luminoso #F7F8FA.
-- Acciones principales: coral #F15A38 con texto oscuro accesible.
-- Títulos y acentos: bugambilia #A74483.
-- Apoyo decorativo: amarillo solar #E8A83D.
-- Verde #517D39 y azul #3769C8 reservados para usos puntuales, como detalles y foco de teclado.
+## Marca
+Logo original en public/images/logo.png, transparente y sin cambios.
+SHA-256: d07136c77140cafef61721ba78edf78aaf12ec77f168cf506484f9a81ed76047.
+node scripts/prepare-favicon.mjs genera el favicon desde el lente sin sobrescribir el logo.
 
-La tipografía combina Georgia para titulares, Archivo para lectura y navegación e Instrument Serif en detalles. El texto principal es grafito #252525. Hay superposiciones blancas en portada, franjas coral/bugambilia en las tarjetas y movimiento discreto que respeta reduced-motion.
+Blanco/grafito, azul de acción, solar y acentos bugambilia/coral. Georgia para títulos, Archivo para lectura. El movimiento respeta reduced-motion.
 
-`public/images/logo.png` se conserva intacto, con transparencia y proporción 3:1. Su SHA-256 es `d07136c77140cafef61721ba78edf78aaf12ec77f168cf506484f9a81ed76047`.
+## Verificación y entrega
+Auditoría y límites en DESIGN-RESCUE.md. TypeScript/build:pages correctos. Inicio, menú agrupado, fichas y destacados revisados en escritorio y móvil; consola sin errores en las vistas comprobadas.
+JS principal: 73.58 KB gzip; CSS: 8.71 KB gzip. Reproducción, pausa y selección de la versión móvil comprobadas; ambos MP4 se decodificaron completos sin errores. No se midieron Lighthouse/Core Web Vitals ni dispositivos físicos.
 
-## Verificación
-Se comprobaron compilación, tipos estrictos, relación entre municipio y lugar, dimensiones reales de imágenes/srcSet, base raíz y GitHub Pages, navegación y redirecciones. Se inspeccionaron escritorio y móvil, galería con teclado/Escape y restitución del foco, y consola de producción.
+Capturas actuales: C:/Users/dany/.codex/visualizations/2026/11/17/01a1eaa6-e1cb-7743-ad83-133e0d617d5f/reparacion-edomex/
 
-En México Vivo, los contrastes calculados son: grafito sobre coral 4.57:1, blanco sobre coral de hover 4.71:1, bugambilia sobre blanco 5.53:1 y texto secundario sobre gris luminoso 5.59:1. No constituyen una certificación completa de accesibilidad.
-
-JavaScript de producción: aproximadamente 69 KB gzip; CSS: 5.57 KB gzip. Las imágenes tienen carga diferida fuera de portada y tamaños responsivos. El PNG oficial se conserva sin recomprimir. No se midieron Lighthouse, LCP o CLS ni dispositivos físicos.
-
-Las capturas están en `C:/Users/dany/.codex/visualizations/2026/11/17/01a1eaa6-e1cb-7743-ad83-133e0d617d5f/mexico-vivo-blanco/`.
-No se publicó el sitio ni se cambió el remoto.
+El servidor de desarrollo sigue disponible para revisión local. El usuario autorizó expresamente el commit y push de esta entrega junto con el video de Otumba. Los próximos pushes requieren una nueva indicación.

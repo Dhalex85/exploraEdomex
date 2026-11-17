@@ -1,55 +1,61 @@
-# Rescate frontend — EXPLORA EDOMEX
+# EXPLORA EDOMEX — estado del diseño y reparación
 
-## Dirección vigente
-La referencia principal recibida fue `C:/Users/dany/Downloads/a_polished_modern_tourism_website_homepage_mockup.png`. Se tomó su composición: hero fotográfico amplio, encabezado integrado, titular editorial grande, botones redondeados, dos tarjetas de municipios con texto superpuesto y fotografías dominantes.
+## Navegación vigente
+La barra contiene únicamente **Inicio · Municipios ▾ · Lugares destacados**.
+Axapusco y Otumba aparecen dentro de Municipios. El listado se genera desde los datos: incorporar municipios no añade entradas al primer nivel.
 
-La instrucción posterior del usuario fija la identidad MÉXICO VIVO. Sustituye por completo la paleta petróleo, mineral y cobre, conservando la estructura y el comportamiento.
+Jerarquía conservada: Estado de México → Municipio → Localidad opcional → Lugar.
+- Axapusco → Xala → Restaurante San Francisco.
+- Otumba → Estación del Ferrocarril.
 
-## Sistema visual México Vivo
-- Blanco #FFFFFF: fondo principal y velos de portada. Gris luminoso #F7F8FA: secciones secundarias y estados pendientes.
-- Coral #F15A38: navegación activa, botones, acento de Axapusco.
-- Bugambilia #A74483: titular protagonista, encabezados, acento de Otumba.
-- Solar #E8A83D: líneas y pequeños detalles.
-- Natural #517D39: detalles puntuales en estados sin fotografías.
-- Brillante #3769C8: foco visible del teclado.
-- Texto principal grafito #252525; texto secundario #60646C.
+El menú de escritorio usa un disclosure nativo y cierra con Escape, selección o clic exterior. En móvil se usa un diálogo con foco, Tab/Shift+Tab, Escape y bloqueo del fondo; Municipios agrupa sus opciones. Los enlaces a lugares mantienen sus rutas canónicas. La galería sigue dentro de cada lugar. El nuevo acceso a destacados conduce a una selección editorial de las dos fichas existentes.
 
-Se evita presentar todos los colores como decoración simultánea. Las fotografías conservan sus colores reales. No se modificó el archivo oficial del logo.
+## Reparación
+Una actualización de componentes quedó visible antes de recibir los estilos correspondientes: el encabezado, el hero y las nuevas tarjetas perdieron proporciones. Se completaron sus estilos, se corrigió el selector de movimiento que apuntaba a un elemento retirado y se verificaron las páginas completas. No se reconstruyó la aplicación ni se añadieron dependencias.
 
-## Alcance conservado
-Inicio → municipio → localidad opcional → lugar.
-Solo Axapusco → Xala → Restaurante San Francisco y Otumba → Estación del Ferrocarril.
+## Dirección visual
+Portada: “Edomex, a otra altura”. Paisaje aéreo de referencia de Villa del Carbón, identificado y acreditado. Fotografía dominante, tipografía editorial Georgia, lectura Archivo y logo oficial transparente.
+- Blanco #FFFFFF y gris #F7F8FA para superficies.
+- Grafito #252525 para texto.
+- Azul #285DE5 para la acción de portada.
+- Solar #F4C34E para detalles; bugambilia #A74483 y coral #F15A38 en las tarjetas.
+La identidad no implica presentar las fotos temporales como material propio.
 
-En el cambio cromático se modificaron únicamente las cinco hojas de estilo y el color del navegador en index.html, además de esta documentación. Se compararon los hashes de rutas, datos, componentes de navegación, fichas, galería y logo antes/después: permanecieron iguales. No se añadieron dependencias ni funcionalidades.
+Las fotografías actuales son referencias para previsualizar el futuro material de autoría del equipo. La portada de inicio muestra esa condición y los créditos explican la sustitución pendiente. El video de Otumba sí es material propio proporcionado por el equipo. No se añadieron fotografías ajenas al restaurante: conserva su estado pendiente.
 
-## Skills utilizadas
-- frontend-design, anthropics/skills, revisión e4bb5d960d87126ff3b3a8af1a104b7db67560ba.
-- web-design-guidelines y vercel-react-best-practices, vercel-labs/agent-skills, revisión 1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62.
-- responsive-design, wshobson/agents, revisión 9c61ab243def98f72da12abd41cfcf5bcd91af9d.
-- Navegador CUA para inspección, cambios de viewport, teclado y capturas. No se instaló otro motor de navegador.
+## Video de Otumba
+Primera edición se integra en la portada del municipio, con composición editorial de texto y reproductor vertical. El encuadre conserva toda la imagen útil del original; solo se retiran las franjas negras laterales. Póster real del segundo 8, reproducción voluntaria, pausa y controles nativos. No hay autoplay ni reproducción en bucle. Descripción visual desplegable para accesibilidad; el original contiene una pista de audio completamente vacía.
 
-## Comprobación visual y funcional
-Se compararon capturas con la referencia y se corrigieron el encuadre bajo el encabezado y las capas de las franjas que tapaban las flechas. Se mantuvo la fotografía visible desde la portada móvil.
+Versiones H.264 faststart de 36.2 MB y 14.6 MB para móvil; preload none evita descargar el video al entrar. La ruta usa BASE_URL de Vite. El original de 302 MB y el logo permanecen intactos. Las herramientas y los archivos intermedios quedan fuera del repositorio. Datos y comandos: public/videos/otumba/README.md.
 
-Se comprobaron rutas de municipios y lugares, enlaces antiguos, combinación inválida municipio/lugar, recarga directa, anclas, menú móvil con teclado/Escape y galería. En el visor se verificaron flechas, cierre y devolución del foco. La consola de producción revisada no mostró errores.
+La cámara responde al cursor en escritorio y el paisaje acompaña el scroll. El marco y el avance son decorativos, sin datos ficticios de vuelo. Las animaciones se omiten con reduced-motion; GSAP y sus listeners se revierten al desmontar.
 
-Para México Vivo se inspeccionó el inicio a 1280 y 390 px, con dos tarjetas y sin desbordamiento horizontal en esas vistas; también la estación y su galería en móvil. Pasaron TypeScript y la compilación de GitHub Pages.
+## Material gráfico
+- Portada temporal: Oscar Garcia Medina / Pexels, https://www.pexels.com/photo/scenic-landscape-of-a-lake-12302974/
+- Licencia: https://www.pexels.com/license/
+- Fuente local: assets-src/villa-del-carbon-reference.jpg.
+- Versiones: aerial-cover-800/1600/2400.webp y aerial-cover-mobile.webp.
+- Regeneración: node scripts/prepare-aerial-cover.mjs.
+- Villa del Carbón solo identifica la portada de referencia; no crea una ficha ni un municipio adicional.
+- Las imágenes documentales de Axapusco y Otumba conservan sus créditos/licencias.
+- Logo original intacto: SHA-256 d07136c77140cafef61721ba78edf78aaf12ec77f168cf506484f9a81ed76047.
+- Favicon del lente oficial; script prepare-favicon.mjs no modifica el logo.
 
-## Calidad y límites
-Contrastes base: coral/grafito 4.57:1; hover coral/blanco 4.71:1; bugambilia/blanco 5.53:1. El contraste de fotos se revisó visualmente con superposiciones; no se realizó una auditoría automática completa de WCAG.
+## Verificación
+- TypeScript y build de GitHub Pages correctos; base raíz revisada en desarrollo.
+- Inicio, desplegable, municipios, fichas y enlaces de destacados comprobados.
+- Escritorio 1440 × 960 y móviles 390 × 844 / 320 × 740 revisados; sin desbordamiento horizontal en las vistas comprobadas.
+- Jerarquía Municipio → Lugar y localidad Xala verificada; estado pendiente del restaurante conservado.
+- Menú con teclado, Escape, devolución de foco y ciclo Tab/Shift+Tab comprobados.
+- Consolas revisadas sin errores ni advertencias, también en la compilación bajo /exploraEdomex/.
+- Historial y anclas conservan el comportamiento de la reparación previa.
+- JS principal: 73.58 KB gzip; CSS: 8.71 KB gzip; módulos de movimiento: 46.39 KB gzip bajo demanda.
+- Video de Otumba: reproducción y pausa con teclado, versión móvil, póster, navegación a la estación y decodificación completa de ambos MP4 comprobados. Revisión adicional bajo la base de GitHub Pages.
+- Portada móvil: unos 110 KB. El PNG original del logo pesa 1.43 MB y se conserva.
+No se midieron Lighthouse/Core Web Vitals, no se probaron dispositivos físicos y la auditoría manual no es una certificación WCAG.
 
-Se validaron fuentes fotográficas y dimensiones/srcSet. La galería de la estación incluye dos fotografías documentales y un recorte identificado de la portada. La ficha del restaurante sigue esperando fotos y descripción; no se reemplazan por contenido inventado.
+Skills aplicadas: frontend-design, responsive-design, web-design-guidelines y prácticas React compatibles con React 18. No se ejecutaron scripts externos desconocidos.
 
-No se ejecutó lint porque no hay configuración. No se midieron Core Web Vitals o Lighthouse, ni se probaron dispositivos físicos. Las capturas no equivalen a esas mediciones.
+Capturas vigentes: C:/Users/dany/.codex/visualizations/2026/11/17/01a1eaa6-e1cb-7743-ad83-133e0d617d5f/reparacion-edomex/
 
-## Capturas
-- Antes: carpeta `design-audit`.
-- Primera dirección basada en la referencia: carpeta `design-rescue`.
-- Dirección México Vivo inicial: carpeta `mexico-vivo`.
-- Refinamiento vigente con blanco y grafito: carpeta `mexico-vivo-blanco`.
-
-Todas dentro de `C:/Users/dany/.codex/visualizations/2026/11/17/01a1eaa6-e1cb-7743-ad83-133e0d617d5f/`. Los archivos actuales incluyen inicio y portada en escritorio y móvil.
-
-
-## Refinamiento de fondos
-Se conservaron composición, tipografías, colores de identidad, tarjetas e interacciones. Se sustituyeron fondos crema y beige por blanco/gris luminoso, se redujeron sombras y se aclaró el visor. Se verificaron los fondos computados en navegador: body y visor #FFFFFF; galería #F7F8FA; texto #252525. Inicio de escritorio (1280 px) y móvil (390 px) sin desbordamiento en las vistas revisadas; galería sin errores de consola. TypeScript y build:pages correctos.
+Entrega con commit y push autorizados expresamente por el usuario al solicitar el video de Otumba. Cualquier push posterior requiere una nueva indicación.

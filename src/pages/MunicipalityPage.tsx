@@ -5,6 +5,7 @@ import { PhotoCredit, PhotoImage } from "../components/Photo";
 import { getMunicipality } from "../data/municipalities";
 import { getMunicipalityPlaces, placePath } from "../data/destinations";
 import { NotFound } from "./DestinationPage";
+import { OtumbaFilmHero } from "../components/OtumbaFilmHero";
 
 export function MunicipalityPage() {
   const { municipalitySlug } = useParams();
@@ -12,7 +13,7 @@ export function MunicipalityPage() {
   if (!municipality) return <NotFound />;
   const places = getMunicipalityPlaces(municipality.slug);
   return <>
-    <section className={`municipality-hero municipality-hero--${municipality.slug}`} aria-labelledby="municipality-title">
+    {municipality.slug === "otumba" ? <OtumbaFilmHero /> : <><section className={`municipality-hero municipality-hero--${municipality.slug}`} aria-labelledby="municipality-title">
       <PhotoImage photo={municipality.hero} eager />
       <div className="municipality-hero-veil" aria-hidden="true" />
       <div className="shell municipality-hero-inner">
@@ -21,7 +22,7 @@ export function MunicipalityPage() {
         <p className="municipality-hero-caption"><Camera size={14} aria-hidden="true" />{municipality.hero.caption}</p>
       </div>
     </section>
-    <div className="shell cover-credit"><PhotoCredit photo={municipality.hero} /></div>
+    <div className="shell cover-credit"><PhotoCredit photo={municipality.hero} /></div></>}
     <section className="shell municipal-places section-space" id="lugares" aria-labelledby="places-title">
       <div className="section-heading"><div><p className="section-kicker">Lugares de {municipality.name}</p><h2 id="places-title">Una parada<br />para descubrir.</h2></div><p>{municipality.description}</p></div>
       {places.map((place) => <article className={`place-feature ${place.status === "pending" ? "place-feature--pending" : ""}`} key={place.id}>

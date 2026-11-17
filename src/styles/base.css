@@ -38,7 +38,7 @@
   --ease: cubic-bezier(.2, .7, .2, 1);
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 24px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 16px); -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
 h1, h2, h3, p, figure { margin: 0; }
 h1, h2, h3 { line-height: 1.1; text-wrap: balance; overflow-wrap: break-word; }
@@ -50,13 +50,13 @@ svg { flex-shrink: 0; }
 a, button, summary { touch-action: manipulation; -webkit-tap-highlight-color: #F15A3824; }
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
 main:focus { outline: 0; }
-[id] { scroll-margin-top: 24px; }
+[id] { scroll-margin-top: 12px; }
 .shell { width: calc(100% - var(--gutter) * 2); max-width: 1440px; margin-inline: auto; }
 .section-space { padding-block: clamp(56px, 7vw, 104px); }
 .section-kicker { color: #96326E; font-size: 12px; font-weight: 600; margin-bottom: 17px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 52px; padding: 15px 26px; border-radius: 999px; font-size: 14px; font-weight: 600; line-height: 1.4; transition: background .2s, transform .25s var(--ease), box-shadow .25s; }
-.button-primary { background: var(--coral); color: #252525; box-shadow: 0 3px 9px #25252512; }
-.button-primary:hover { background: #D23E25; color: white; transform: translateY(-2px); box-shadow: 0 5px 12px #25252517; }
+.button-primary { background: var(--bugambilia); color: white; box-shadow: 0 3px 9px #25252512; }
+.button-primary:hover { background: #8F326D; color: white; transform: translateY(-2px); box-shadow: 0 5px 12px #25252517; }
 .button-light { background: var(--white); color: var(--accent-deep); }
 .button-light:hover { background: #F7F8FA; transform: translateY(-2px); }
 .text-link { display: inline-flex; gap: 14px; align-items: center; min-height: 44px; font-size: 13px; font-weight: 500; }

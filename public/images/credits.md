@@ -247,3 +247,25 @@ Las tres se sirven localmente desde `public/fonts/` como subconjuntos WOFF2.
 - **Lucide** (iconografía) — ISC License. https://lucide.dev/license
 - **GSAP 3** — GreenSock Standard License. https://gsap.com/standard-license/
 - **Texto y dirección de arte** — Explora Edomex, prototipo editorial 2026.
+
+## Referencia anterior — Nevado de Toluca (sin uso en la portada actual)
+
+- Archivo de trabajo: `assets-src/nevado-toluca-cover.jpg`.
+- Versiones: `images/site/nevado-cover-800.webp`, `nevado-cover-1600.webp`, `nevado-cover-2400.webp` y `nevado-cover-mobile.webp`.
+- Autor: Miguel González.
+- Fuente: Pexels, https://www.pexels.com/photo/lake-and-majestic-mountains-landscape-15890092/.
+- Licencia: Licencia Pexels, https://www.pexels.com/license/.
+- Ubicación identificada por la fuente: Nevado de Toluca, Estado de México.
+- Uso: paisaje editorial de portada; no es una ficha nueva ni se atribuye a Axapusco o a Otumba.
+- Tratamiento: reducción y conversión a WebP; encuadre vertical para móvil. Las superposiciones de legibilidad se aplican mediante CSS.
+
+## Portada actual de referencia — Villa del Carbón
+
+- Fuente local: `assets-src/villa-del-carbon-reference.jpg`.
+- Versiones: `images/site/aerial-cover-800.webp`, `aerial-cover-1600.webp`, `aerial-cover-2400.webp` y `aerial-cover-mobile.webp`.
+- Autor: Oscar Garcia Medina.
+- Fuente: Pexels, https://www.pexels.com/photo/scenic-landscape-of-a-lake-12302974/.
+- Licencia: https://www.pexels.com/license/.
+- La fuente identifica la toma aérea en Villa del Carbón, Estado de México.
+- Referencia temporal para previsualizar el diseño; no es material de autoría de EXPLORA EDOMEX ni agrega un municipio al catálogo. Se sustituirá por fotografía propia del equipo.
+- Tratamiento: recorte, reducción y WebP. Los velos de contraste y el movimiento se aplican en la interfaz.
