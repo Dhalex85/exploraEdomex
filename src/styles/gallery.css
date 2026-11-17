@@ -1,0 +1,33 @@
+.gallery-section { background: #F7F8FA; }
+.gallery-heading h2 { font-size: clamp(36px, 4.8vw, 66px); }
+.photo-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px 28px; }
+.photo-item { min-width: 0; }
+.photo-item--1 { grid-column: 1/-1; }
+.photo-open { position: relative; display: block; width: 100%; border: 0; border-radius: 20px; padding: 0; background: var(--stone); overflow: hidden; }
+.photo-open img { width: 100%; height: 440px; object-fit: cover; transition: transform .65s var(--ease); }
+.photo-item--1 img { height: auto; aspect-ratio: 16/9; }
+.photo-open:hover img { transform: scale(1.025); }
+.photo-expand { position: absolute; bottom: 20px; right: 20px; background: #FFFFFFe8; color: var(--ink); width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; }
+.photo-item figcaption { padding: 14px 2px 0; }
+.lightbox { position: fixed; inset: 0; border: 0; width: 100vw; max-width: 100vw; height: 100svh; max-height: 100svh; margin: 0; padding: max(16px, env(safe-area-inset-top)) max(18px, 4vw) max(16px, env(safe-area-inset-bottom)); background: var(--white); color: var(--ink); overflow: auto; overscroll-behavior: contain; }
+.lightbox::backdrop { background: #25252580; }
+.lightbox-top { display: flex; align-items: center; justify-content: space-between; font-size: 12px; max-width: 1600px; margin-inline: auto; }
+.lightbox button { background: var(--surface); color: var(--ink); border: 1px solid transparent; border-radius: 99px; min-width: 48px; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 16px; transition: background .2s; }
+.lightbox button:hover { background: #EEF0F3; }
+.lightbox-figure { margin: 12px auto 18px; max-width: 1600px; }
+.lightbox-figure > img { width: 100%; height: calc(100svh - 222px); object-fit: contain; }
+.lightbox-figure figcaption { margin-top: 15px; text-align: center; }
+.lightbox .photo-credit { color: var(--muted); }
+.lightbox-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 1600px; margin: auto; }
+.lightbox-hint { font-size: 11px; color: var(--muted); }
+.lightbox-controls button { font-size: 12px; }
+@media (max-width: 759px) {
+  .photo-grid { grid-template-columns: 1fr; gap: 28px; }
+  .photo-open { border-radius: 16px; }
+  .photo-open img { height: auto; aspect-ratio: 4/3; }
+  .photo-item--3 img { aspect-ratio: 3/4; }
+  .lightbox-hint { display: none; }
+  .lightbox-figure > img { height: calc(100svh - 265px); min-height: 150px; }
+  .lightbox-figure .photo-credit { font-size: 10px; }
+  .lightbox .photo-caption { font-size: 12px; }
+}

@@ -1,145 +1,51 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
-import type { GalleryItem } from "../data/content";
+import type { Photo } from "../data/types";
+import { PhotoImage, PhotoCredit } from "./Photo";
 
-type LightboxProps = {
-  items: GalleryItem[];
+type Props = {
+  photos: Photo[];
   index: number;
   onClose: () => void;
   onNavigate: (index: number) => void;
 };
 
-export function Lightbox({ items, index, onClose, onNavigate }: LightboxProps) {
-  const dialogRef = useRef<HTMLDivElement>(null);
-  const closeRef = useRef<HTMLButtonElement>(null);
-  const item = items[index];
+export function Lightbox({ photos, index, onClose, onNavigate }: Props) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const photo = photos[index];
 
   useEffect(() => {
-    const previouslyFocused = document.activeElement as HTMLElement | null;
-    const { overflow } = document.body.style;
+    const element = dialog.current;
+    const previous = document.activeElement as HTMLElement | null;
+    const overflow = document.body.style.overflow;
+    element?.showModal();
     document.body.style.overflow = "hidden";
-    closeRef.current?.focus();
-
     return () => {
+      element?.close();
       document.body.style.overflow = overflow;
-      previouslyFocused?.focus();
+      previous?.focus({ preventScroll: true });
     };
   }, []);
 
-  useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-        return;
-      }
-      if (event.key === "ArrowRight") {
-        onNavigate((index + 1) % items.length);
-        return;
-      }
-      if (event.key === "ArrowLeft") {
-        onNavigate((index - 1 + items.length) % items.length);
-        return;
-      }
-      if (event.key !== "Tab") return;
-
-      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
-        "button, a[href]",
-      );
-      if (!focusable?.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [index, items.length, onClose, onNavigate]);
-
-  if (!item) return null;
-
-  return createPortal(
-    <div
-      className="lightbox"
-      role="dialog"
-      aria-modal="true"
-      aria-label={`${item.title} — ${item.photo.location}`}
-      ref={dialogRef}
-      onClick={(event) => {
-        if (event.target === event.currentTarget) onClose();
-      }}
-    >
-      <button
-        type="button"
-        className="lightbox__close"
-        onClick={onClose}
-        ref={closeRef}
-        aria-label="Cerrar galería"
-      >
-        <X size={20} strokeWidth={1.4} aria-hidden="true" />
-      </button>
-
-      <button
-        type="button"
-        className="lightbox__nav lightbox__nav--prev"
-        onClick={() => onNavigate((index - 1 + items.length) % items.length)}
-        aria-label="Fotografía anterior"
-      >
-        <ArrowLeft size={20} strokeWidth={1.3} aria-hidden="true" />
-      </button>
-
-      <figure className="lightbox__figure">
-        <div className="lightbox__media">
-          <img
-            src={item.photo.src}
-            srcSet={item.photo.srcSet}
-            sizes="92vw"
-            width={item.photo.width}
-            height={item.photo.height}
-            alt={item.photo.alt}
-            decoding="async"
-          />
-        </div>
-
-        <figcaption className="lightbox__caption">
-          <span className="meta lightbox__counter">
-            {String(index + 1).padStart(2, "0")} /{" "}
-            {String(items.length).padStart(2, "0")} · {item.category}
-          </span>
-          <h3 className="lightbox__title serif">{item.title}</h3>
-          <p className="lightbox__place">
-            {item.photo.caption} · {item.photo.location}
-          </p>
-          <p className="lightbox__credit meta">
-            Fotografía — {item.photo.credit.author} · {item.photo.credit.source}{" "}
-            ·{" "}
-            <a
-              href={item.photo.credit.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {item.photo.credit.license}
-            </a>
-          </p>
-        </figcaption>
-      </figure>
-
-      <button
-        type="button"
-        className="lightbox__nav lightbox__nav--next"
-        onClick={() => onNavigate((index + 1) % items.length)}
-        aria-label="Fotografía siguiente"
-      >
-        <ArrowRight size={20} strokeWidth={1.3} aria-hidden="true" />
-      </button>
-    </div>,
-    document.body,
-  );
+  if (!photo) return null;
+  return createPortal(<dialog
+    ref={dialog}
+    className="lightbox"
+    aria-label="Visor de fotografías"
+    aria-describedby="lightbox-caption"
+    onCancel={(event) => { event.preventDefault(); onClose(); }}
+    onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
+    onKeyDown={(event) => {
+      if (event.key === "ArrowRight") { event.preventDefault(); onNavigate((index + 1) % photos.length); }
+      if (event.key === "ArrowLeft") { event.preventDefault(); onNavigate((index - 1 + photos.length) % photos.length); }
+    }}
+  >
+    <div className="lightbox-top"><span aria-live="polite">Fotografía {index + 1} de {photos.length}</span><button type="button" onClick={onClose} aria-label="Cerrar galería" autoFocus><X size={24} aria-hidden="true" /></button></div>
+    <figure className="lightbox-figure">
+      <PhotoImage photo={photo} eager sizes="94vw" />
+      <figcaption id="lightbox-caption"><span className="photo-caption" aria-live="polite">{photo.caption}</span><PhotoCredit photo={photo} /></figcaption>
+    </figure>
+    <div className="lightbox-controls"><button type="button" onClick={() => onNavigate((index - 1 + photos.length) % photos.length)} aria-label="Fotografía anterior"><ArrowLeft size={21} aria-hidden="true" /><span>Anterior</span></button><span className="lightbox-hint">← → para explorar · Esc para cerrar</span><button type="button" onClick={() => onNavigate((index + 1) % photos.length)} aria-label="Fotografía siguiente"><span>Siguiente</span><ArrowRight size={21} aria-hidden="true" /></button></div>
+  </dialog>, document.body);
 }
