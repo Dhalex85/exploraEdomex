@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && vite build --base=/exploraEdomex/",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:pages",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
