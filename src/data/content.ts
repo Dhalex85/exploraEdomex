@@ -476,11 +476,13 @@ export const gallery: GalleryItem[] = [
   },
 ];
 
+
 export const universes: {
   id: string;
   index: string;
   name: string;
   meta: string;
+  detail: string;
   image: Photograph;
   accent: Accent;
   href: string;
@@ -490,6 +492,7 @@ export const universes: {
     index: "01",
     name: "Destinos",
     meta: "Sierras, bosques y miradores.",
+    detail: "Horizontes que invitan a detenerse.",
     image: photographs.destinos,
     accent: "verde",
     href: "#destinos",
@@ -499,6 +502,7 @@ export const universes: {
     index: "02",
     name: "Gastronomía",
     meta: "Maguey, maíz y fuego bajo.",
+    detail: "Sabores que cuentan historias.",
     image: photographs.gastronomiaDetalle,
     accent: "terracotta",
     href: "#gastronomia",
@@ -508,6 +512,7 @@ export const universes: {
     index: "03",
     name: "Experiencias",
     meta: "Rutas y encuentros.",
+    detail: "Encuentros que se quedan contigo.",
     image: photographs.experiencias,
     accent: "azul",
     href: "#experiencias",
@@ -517,11 +522,13 @@ export const universes: {
     index: "04",
     name: "Cultura",
     meta: "Piedra, oficio y memoria.",
+    detail: "Un legado que sigue vivo.",
     image: photographs.cultura,
     accent: "marigold",
     href: "#cultura",
   },
 ];
+
 
 export const gastronomyPhotos = {
   heat: photographs.gastronomia,
