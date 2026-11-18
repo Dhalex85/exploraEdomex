@@ -24,6 +24,6 @@ export const municipalities: Municipality[] = [
     description: "Nuestra primera parada en Axapusco está en Xala: el Restaurante San Francisco. Conoce su fachada y abre la fotografía para verla completa." },
   { slug: "otumba", name: "Otumba", region: "Estado de México", hero: getDestination("estacion-otumba")!.hero!, card: getDestination("estacion-otumba")!.hero!,
     coverLabel: "Estación del Ferrocarril",
-    description: "Una primera mirada a Otumba desde su Estación del Ferrocarril. Recorre las fotografías del andén y del Museo del Ferrocarril." },
+    description: "Una primera mirada a Otumba desde su Estación del Ferrocarril. Explora las vías, el andén y su entorno con nuestras fotografías aéreas." },
 ];
 export const getMunicipality = (slug: string) => municipalities.find((municipality) => municipality.slug === slug);

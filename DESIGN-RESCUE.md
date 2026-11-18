@@ -21,7 +21,7 @@ Portada: “Edomex, a otra altura”. Paisaje aéreo de referencia de Villa del 
 - Solar #F4C34E para detalles; bugambilia #A74483 y coral #F15A38 en las tarjetas.
 La identidad no implica presentar las fotos temporales como material propio.
 
-La portada de inicio y las fotografías documentales de municipios y estación son referencias acreditadas. El video de Otumba y la nueva fotografía de la fachada del Restaurante San Francisco sí son material propio proporcionado por el equipo. El restaurante ya tiene portada, tarjetas y galería; conserva únicamente los datos confirmados de nombre y ubicación y una descripción de lo visible en la foto.
+La portada de inicio y las fotografías municipales de Axapusco son referencias acreditadas. El video de Otumba, sus tres nuevas fotografías aéreas de la estación y la fachada del Restaurante San Francisco son material propio proporcionado por el equipo. Las fotografías anteriores de la estación se sustituyeron en su ficha, galería, tarjetas y créditos activos. La galería conserva las proporciones completas de las fotos propias. El restaurante conserva únicamente los datos confirmados de nombre y ubicación y una descripción de lo visible en la foto.
 
 ## Video de Otumba
 Primera edición se integra en la portada del municipio, con composición editorial de texto y reproductor vertical. El encuadre conserva toda la imagen útil del original; solo se retiran las franjas negras laterales. Póster real del segundo 8, reproducción voluntaria, pausa y controles nativos. No hay autoplay ni reproducción en bucle. Descripción visual desplegable para accesibilidad; el original contiene una pista de audio completamente vacía.
@@ -37,7 +37,7 @@ La cámara responde al cursor en escritorio y el paisaje acompaña el scroll. El
 - Versiones: aerial-cover-800/1600/2400.webp y aerial-cover-mobile.webp.
 - Regeneración: node scripts/prepare-aerial-cover.mjs.
 - Villa del Carbón solo identifica la portada de referencia; no crea una ficha ni un municipio adicional.
-- Las imágenes documentales de Axapusco y Otumba conservan sus créditos/licencias.
+- Las imágenes documentales de Axapusco conservan sus créditos/licencias. Otumba usa las tres fotos propias de assets-src/otumba-propias; regeneración con scripts/prepare-otumba-photos.mjs. Los originales y el video permanecen intactos.
 - Logo original intacto: SHA-256 d07136c77140cafef61721ba78edf78aaf12ec77f168cf506484f9a81ed76047.
 - Favicon del lente oficial; script prepare-favicon.mjs no modifica el logo.
 
@@ -49,7 +49,7 @@ La cámara responde al cursor en escritorio y el paisaje acompaña el scroll. El
 - Menú con teclado, Escape, devolución de foco y ciclo Tab/Shift+Tab comprobados.
 - Consolas revisadas sin errores ni advertencias, también en la compilación bajo /exploraEdomex/.
 - Historial y anclas conservan el comportamiento de la reparación previa.
-- JS principal: 73.84 KB gzip; CSS: 8.72 KB gzip; módulos de movimiento: 46.39 KB gzip bajo demanda.
+- JS principal: 73.83 KB gzip; CSS: 8.74 KB gzip; módulos de movimiento: 46.39 KB gzip bajo demanda.
 - Video de Otumba: reproducción y pausa con teclado, versión móvil, póster, navegación a la estación y decodificación completa de ambos MP4 comprobados. Revisión adicional bajo la base de GitHub Pages.
 - Portada móvil: unos 110 KB. El PNG original del logo pesa 1.43 MB y se conserva.
 No se midieron Lighthouse/Core Web Vitals, no se probaron dispositivos físicos y la auditoría manual no es una certificación WCAG.

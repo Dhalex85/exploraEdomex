@@ -193,6 +193,8 @@ publicadas en Wikimedia Commons bajo CC BY-SA 4.0.
 
 ## 17. Museo del Ferrocarril — `otumba-museo-1000.webp`, `otumba-museo-1600.webp`
 
+Referencia anterior, retirada de la ficha y de los créditos activos. Esta sección conserva la procedencia de archivos históricos.
+
 - **Archivo original:** `assets-src/otumba-museo.jpg`
 - **Autor:** Subsecretaría de Turismo del Estado de México
 - **Fuente:** Wikimedia Commons
@@ -202,6 +204,8 @@ publicadas en Wikimedia Commons bajo CC BY-SA 4.0.
 - **Uso:** placa de la sección "Cultura" y galería.
 
 ## 18. Estación de ferrocarril — `otumba-estacion-1000.webp`, `otumba-estacion-1600.webp`
+
+Referencia anterior, sustituida por las fotografías propias que se documentan al final. Esta sección conserva la procedencia de archivos históricos.
 
 - **Archivo original:** `assets-src/otumba-estacion.jpg`
 - **Autor:** Subsecretaría de Turismo del Estado de México
@@ -280,3 +284,17 @@ Las tres se sirven localmente desde `public/fonts/` como subconjuntos WOFF2.
 - Versiones: `images/destinos/restaurante-san-francisco/portada-640.webp`, `portada-1000.webp`, `portada-1448.webp`.
 - Tratamiento: orientación y reducción proporcional, WebP calidad 86; sin alteración de color, retoque ni generación de contenido. La galería muestra la proporción completa; los encuadres de portada y tarjetas se aplican con CSS.
 - Regeneración: `node scripts/prepare-san-francisco-cover.mjs`.
+
+## Estación de Otumba — tres fotografías aéreas propias
+
+Material aportado por el usuario para sustituir todas las fotografías anteriores de la ficha. Autoría: equipo EXPLORA EDOMEX, según la indicación del usuario sobre el material del proyecto. No se asigna una licencia abierta. Las fotografías se usan en la ficha y galería de la estación y en las tarjetas de Otumba y lugares destacados. El video de Otumba se conserva sin cambios.
+
+| Original | Copia intacta en assets-src/otumba-propias | SHA-256 |
+| --- | --- | --- |
+| dos.jpg | anden-aereo.jpg | 49b09a95790f026c456a99ddb6d5d7cc0e6f51aeb16c7d510f24311025ffb644 |
+| tres.jpg | entorno-aereo.jpg | 1bebbcc5358ceec77b192a8566b2aa1309638e37319af076aaf60b6d7ad9a0b9 |
+| UNO.jpg | vista-cenital.jpg | 431e5f91246d95644421c74dfe866a50fa0908d77ed3fa6f46d3d5cc65453d10 |
+
+Originales de 8184 × 6136 px. Versiones WebP de 640, 1200, 1920 y 2560 px en `public/images/destinos/estacion-otumba/`, con los mismos nombres base. Se aplican orientación y reducción proporcional, calidad 84, sin retoques ni cambios de color. Galería y visor muestran la imagen completa; portadas y tarjetas usan encuadres CSS.
+
+Regeneración: `node scripts/prepare-otumba-photos.mjs`. Para importar inicialmente los tres originales, pasar como argumento la carpeta que los contiene. Las versiones antiguas de museo y portada municipal y el recorte vias-900.webp se retiraron de los archivos públicos activos; el script documental actual ya no las genera.

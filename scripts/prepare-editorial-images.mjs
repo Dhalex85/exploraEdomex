@@ -8,8 +8,6 @@ const jobs = [
   ["nevado-toluca-cover.jpg", "site/nevado-cover", [800, 1600, 2400]],
   ["axapusco-capilla.jpg", "municipios/axapusco/portada", [640, 1000, 1600]],
   ["axapusco-hacienda-lateral.jpg", "municipios/axapusco/patio", [640, 1000, 1600]],
-  ["otumba-estacion.jpg", "municipios/otumba/portada", [640, 1000, 1600]],
-  ["otumba-museo.jpg", "municipios/otumba/museo", [640, 1000, 1600]],
   ["axapusco-panorama.jpg", "municipios/axapusco/panorama", [1000, 1920]],
 ];
 for (const [source, output, widths] of jobs) {
